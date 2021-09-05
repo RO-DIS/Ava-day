@@ -1,7 +1,7 @@
-import model.board
-from globals.globals import np, max_path_length, number_of_paths
-from model.parameters import board_size, view_directions
-from model.steps import bad, step_coordinates, get_move_direction, on_board
+import Model.board
+from globals import ROOT_DIR, np, max_path_length, number_of_paths
+from Model.parameters import board_size, view_directions
+from Model.steps import bad, step_coordinates, get_move_direction, on_board
 
 unused_coordinates = {(i, j) for i in range(1, board_size - 1) for j in range(1, board_size - 1)}
 
@@ -25,7 +25,7 @@ def get_snake_path(snake=0):
             path[:, step + 1] = next_point
             path_length += 1
             unused_coordinates.discard((next_point[0], next_point[1]))
-            model.board.field[next_point[0]][next_point[1]].add(snake)
+            Model.board.field[next_point[0]][next_point[1]].add(snake)
         else:
             if on_board(next_point):
                 path[:, step + 1] = next_point
@@ -36,14 +36,17 @@ def get_snake_path(snake=0):
 
     return path
 
+from pathlib import Path
 
 def save_snake_paths(snake=0):
     """saves several paths into file"""
-    open("./resources/paths/path.csv", "w").close()
-    f = open("./resources/paths/path.csv", "a+")
+    # create the directory
+    Path(f"{ROOT_DIR}/resources/paths").mkdir(parents=True,exist_ok=True)
+    
+    f = open(f"{ROOT_DIR}/resources/paths/path.csv", "a+")
     for i in range(number_of_paths):
         snake_path = get_snake_path(snake).astype(int)
-        model.board.field[tuple(snake_path)] = set()
+        Model.board.field[tuple(snake_path)] = set()
         np.savetxt(fname=f, X=snake_path, delimiter=",", fmt="%i")
 
 
@@ -59,7 +62,7 @@ def get_snake_path_length(snake):
         )
         next_point = current_point + step_coordinates[view_direction][:, move_direction]
         if not bad(point=next_point, snake=snake):
-            model.board.field[next_point[0]][next_point[1]].add(snake)
+            Model.board.field[next_point[0]][next_point[1]].add(snake)
             path_length += 1
             current_point = next_point
         else:

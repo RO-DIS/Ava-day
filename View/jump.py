@@ -1,11 +1,11 @@
-from globals.globals import np
-from PyQt5 import QtTest
+from globals import np
+from PyQt6 import QtTest
 
-from view.get_point_cloud import z_grid
-from view.parameters import board_size, min_speed_boost, max_speed_boost, time_frames_in_jump, g, shortest_jump, line_width, \
+from View.get_point_cloud import z_grid
+from View.parameters import board_size, min_speed_boost, max_speed_boost, time_frames_in_jump, g, shortest_jump, line_width, \
     real_time_path_drawing_enabled, line_delay, default_shift
 
-from view.get_point_cloud import colors
+from View.get_point_cloud import colors
 import pyqtgraph.opengl as gl
 
 
@@ -83,9 +83,9 @@ def get_coordinate_color(x, y):
     return colors[x * board_size + y]
 
 
-import view.app
+import View.app
 
-widget = view.app.widget
+widget = View.app.widget
 
 
 def draw_jump(x, y, x_next, y_next):

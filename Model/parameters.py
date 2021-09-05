@@ -1,4 +1,4 @@
-from globals.globals import np
+from globals import np, board_size
 
 epochs = 7
 batch_size = 5
@@ -16,7 +16,6 @@ min_weight, max_weight = -5, 5
 max_visibility_distance = 5
 brain_size = (max_visibility_distance * 2 + 1) * (max_visibility_distance + 1)
 default_visibility_distance = 4
-board_size = 100
 
 min_mutation, max_mutation = -5, 5
 mutation_probability = 1 / 6

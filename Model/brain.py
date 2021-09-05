@@ -1,5 +1,5 @@
-from globals.globals import np
-from model.parameters import max_visibility_distance, view_directions, min_weight, max_weight, brain_size, move_directions, \
+from globals import ROOT_DIR, np
+from Model.parameters import max_visibility_distance, view_directions, min_weight, max_weight, brain_size, move_directions, \
     snake_ids
 
 clockwise_turn = np.array([[0, -1], [1, 0]])
@@ -40,7 +40,11 @@ symmetric_brain_coordinates = np.array(
 
 def set_brains(batch):
     """set the same saved brains to all population"""
-    brains = np.loadtxt(fname=f'./resources/brains/{batch:03}.csv', delimiter=',').reshape((brain_size, move_directions))
+    brains = np.loadtxt(
+        fname=f'{ROOT_DIR}/resources/brains/{batch:03}.csv', 
+        delimiter=','
+        ).reshape((brain_size, move_directions))
+        
     for i in snake_ids:
         snake_brains[i] = brains
 

@@ -1,12 +1,12 @@
-import model.board
+import Model.board
 
-import model.brain
+import Model.brain
 
-snake_brains = model.brain.snake_brains
+snake_brains = Model.brain.snake_brains
 
-from globals.globals import np
-from model.brain import symmetric_brain_coordinates, brain_coordinates, clockwise_powers
-from model.parameters import board_size, view_directions
+from globals import np
+from Model.brain import symmetric_brain_coordinates, brain_coordinates, clockwise_powers
+from Model.parameters import board_size, view_directions
 
 
 def on_board(point):
@@ -14,7 +14,7 @@ def on_board(point):
 
 
 def visited(point, snake):
-    return on_board(point) and (snake in model.board.field[point[0]][point[1]])
+    return on_board(point) and (snake in Model.board.field[point[0]][point[1]])
 
 
 def bad(point, snake):

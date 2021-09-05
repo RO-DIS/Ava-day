@@ -1,6 +1,6 @@
-from view.parameters import board_size, board_height
-from globals.globals import np
-from view.get_image import get_image
+from View.parameters import board_size, board_height
+from globals import np
+from View.get_image import get_image
 
 
 def get_coordinate_grid():

@@ -1,9 +1,9 @@
-from globals.globals import np
-from view.parameters import default_shift
+from globals import np
+from View.parameters import default_shift
 import pyqtgraph.opengl as gl
 
-from view.get_point_cloud import x_grid, y_grid, z_grid, colors
-from view.parameters import dot_opaqueness, dot_size
+from View.get_point_cloud import x_grid, y_grid, z_grid, colors
+from View.parameters import dot_opaqueness, dot_size
 
 
 def set_opaqueness_of_image_dots():
@@ -19,9 +19,9 @@ def get_centered_board():
     return np.array([shift_points(x_grid), shift_points(y_grid), z_grid]).T
 
 
-import view.app
+import View.app
 
-widget = view.app.widget
+widget = View.app.widget
 
 
 def draw_point_cloud():

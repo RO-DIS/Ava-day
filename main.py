@@ -1,4 +1,4 @@
-from controller.controller import run_controller
+from Controller.controller import run_controller
 
 image_name = "hockey"
 

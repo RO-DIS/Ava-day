@@ -1,6 +1,6 @@
-import model.brain as brain
-import model.path as path
-from model.parameters import top_batch
+import Model.brain as brain
+import Model.path as path
+from Model.parameters import top_batch
 
 
 def save_top_paths():

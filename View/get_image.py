@@ -1,6 +1,6 @@
-from view.parameters import path_to_image, image_side, board_size
+from View.parameters import path_to_image, image_side, board_size
 
-from globals.globals import np
+from globals import np
 from PIL import Image
 
 

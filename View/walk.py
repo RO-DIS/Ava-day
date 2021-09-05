@@ -1,6 +1,6 @@
-from globals.globals import np, number_of_paths
-from view.parameters import board_size, length_of_random_walk, number_of_random_walks
-from view.jump import draw_jump
+from globals import np, number_of_paths, ROOT_DIR
+from View.parameters import board_size, length_of_random_walk, number_of_random_walks
+from View.jump import draw_jump
 
 
 def on_board(point):
@@ -33,7 +33,7 @@ def draw_random_walks():
 
 def draw_genetic_algorithm_walks():
     """draw walks produced by GA"""
-    f = open("./resources/paths/path.csv", "r")
+    f = open(f"{ROOT_DIR}/resources/paths/path.csv", "r")
     for i in range(number_of_paths):
         snake_path = np.loadtxt(fname=f, delimiter=",", max_rows=2).astype(int)
         draw_walk(snake_path.T)

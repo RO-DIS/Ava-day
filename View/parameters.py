@@ -11,7 +11,7 @@ max_jump_height = 30
 # adding speed to make jumps lower
 min_speed_boost, max_speed_boost = 5, 6
 # show dots
-are_visible_dots = True
+are_visible_dots = False
 # width of lines on path
 line_width = 3
 # for picture dots
@@ -24,8 +24,7 @@ time_frames_in_jump = 2
 line_delay = 0
 
 # distance from origin for viewing pictures
-view_height, elevation, azimuth = 125, 90, 0
-
+view_height, elevation, azimuth = 125, 40, 180
 # 125, 30, -30
 # 125, 40, 180
 
@@ -44,18 +43,19 @@ mass = 3
 # side of image
 image_side = 512
 
-from globals.globals import np
-from main import image_name
-
-# derived constants
-
-# maximum initial speed of jump
-max_initial_speed = np.sqrt(2 * g * max_jump_height)
-# path to image for map
-
-path_to_image = f"./resources/images/{image_name}.png"
-
 background_color = 'k'
 
 window_height = 700
 window_width = 700
+
+# derived constants
+
+# maximum initial speed of jump
+
+from globals import ROOT_DIR, np
+from main import image_name
+
+# path to image for map
+path_to_image = f"{ROOT_DIR}/resources/images/{image_name}.png"
+
+max_initial_speed = np.sqrt(2 * g * max_jump_height)
