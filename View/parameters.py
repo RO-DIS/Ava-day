@@ -24,7 +24,7 @@ time_frames_in_jump = 2
 line_delay = 0
 
 # distance from origin for viewing pictures
-view_height, elevation, azimuth = 125, 40, 180
+view_height, elevation, azimuth = 110, 20, 90
 # 125, 30, -30
 # 125, 40, 180
 
