@@ -6,25 +6,33 @@
 
 ## Linux installation
 
-### install _PyQt6_
+### Install _PyQt6_
 
-`$ sudo apt install PyQt6`
+```sh
+$ sudo apt install PyQt6
+```
 
-### install pyqtgraph
+### Install pyqtgraph
 
-`$ sudo apt install pyqtgraph`
+```sh
+$ sudo apt install pyqtgraph
+```
 
-### install PyOpenGL
+### Install PyOpenGL
 
-`$ pip install PyOpenGL`
+```sh
+$ pip install PyOpenGL
+```
 
-### install OpenGL
 
-`$ sudo apt-get update`
+### Install OpenGL
 
-`$ sudo apt-get install libglu1-mesa-dev freeglut3-dev mesa-common-dev`
+```sh
+$ sudo apt-get install libglu1-mesa-dev freeglut3-dev mesa-common-dev
+$ sudo apt-get update
+```
 
-### change library a bit
+### Change library a bit
 
 We need to fix a bug with camera in GL file, so
 go to *View/app.py*, `Ctrl+Left mouse click` on
@@ -55,3 +63,8 @@ self.opts['elevation'] = 90          ## camera's angle of elevation in degrees
 self.opts['azimuth'] = 0             ## camera's azimuthal angle in degrees 
 ```
 
+## Running on Linux
+
+```sh
+$ python main.py
+```
