@@ -9,6 +9,7 @@ resources/brains/006.csv
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+*.pyc
 
 # C extensions
 *.so
@@ -63,3 +64,5 @@ docs/_build/
 
 # PyBuilder
 target/
+Avaday/View/__pycache__/app.cpython-37.pyc
+Avaday/View/__pycache__/app.cpython-37.pyc

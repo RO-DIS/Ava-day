@@ -6,7 +6,7 @@ from Avaday.View.config import view_height, elevation, azimuth, background_color
 
 application = QApplication([])
 widget = gl.GLViewWidget()
-from View.config import BOARD_SIZE
+from Avaday.View.config import BOARD_SIZE
 
 # move frame of reference
 widget.pan(BOARD_SIZE//2,BOARD_SIZE//2,0)

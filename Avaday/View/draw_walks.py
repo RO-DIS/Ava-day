@@ -28,3 +28,4 @@ def draw_walk(xs, ys):
         line.setData(pos=np.array([points[i],points[i+1]]), color=tuple(color[i]), width=LINE_WIDTH)
 
         widget.addItem(line)
+
