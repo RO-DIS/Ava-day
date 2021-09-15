@@ -1,9 +1,9 @@
 import Avaday.Model.board
-from Avaday.globals import ROOT_DIR, np, max_path_length, number_of_paths
-from Avaday.Model.parameters import board_size, view_directions
+from Avaday.config import ROOT_DIR, np, MAXIMAL_PATH_LENGTH, NUMBER_OF_PATHS
+from Avaday.Model.config import BOARD_SIZE, view_directions
 from Avaday.Model.steps import bad, step_coordinates, get_move_direction, on_board
 
-unused_coordinates = {(i, j) for i in range(1, board_size - 1) for j in range(1, board_size - 1)}
+unused_coordinates = {(i, j) for i in range(1, BOARD_SIZE - 1) for j in range(1, BOARD_SIZE - 1)}
 
 
 def get_snake_path(snake=0):
@@ -11,12 +11,12 @@ def get_snake_path(snake=0):
     if not unused_coordinates:
         return np.array([[0, 0], [0, 1]])
 
-    path = np.zeros((2, max_path_length)).astype(int)
+    path = np.zeros((2, MAXIMAL_PATH_LENGTH)).astype(int)
     path_length = 1
     path[:, 0] = unused_coordinates.pop()
     view_direction = np.random.randint(low=0, high=4)
 
-    for step in range(max_path_length - 1):
+    for step in range(MAXIMAL_PATH_LENGTH - 1):
         move_direction, view_direction = get_move_direction(
             point=path[:, step], direction=view_direction, snake=snake
         )
@@ -44,7 +44,7 @@ def save_snake_paths(snake=0):
     Path(f"{ROOT_DIR}/resources/paths").mkdir(parents=True,exist_ok=True)
     
     f = open(f"{ROOT_DIR}/resources/paths/path.csv", "a+")
-    for i in range(number_of_paths):
+    for i in range(NUMBER_OF_PATHS):
         snake_path = get_snake_path(snake).astype(int)
         Avaday.Model.board.field[tuple(snake_path)] = set()
         np.savetxt(fname=f, X=snake_path, delimiter=",", fmt="%i")
@@ -53,10 +53,10 @@ def save_snake_paths(snake=0):
 def get_snake_path_length(snake):
     """calculates length of a path"""
     path_length = 1
-    current_point = np.random.randint(low=0, high=board_size - 1, size=2)
+    current_point = np.random.randint(low=0, high=BOARD_SIZE - 1, size=2)
     view_direction = np.random.randint(view_directions)
 
-    for step in range(board_size ** 2):
+    for step in range(BOARD_SIZE ** 2):
         move_direction, view_direction = get_move_direction(
             point=current_point, direction=view_direction, snake=snake
         )

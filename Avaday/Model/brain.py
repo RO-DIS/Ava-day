@@ -1,5 +1,5 @@
-from Avaday.globals import ROOT_DIR, np
-from Avaday.Model.parameters import max_visibility_distance, view_directions, min_weight, max_weight, brain_size, move_directions, \
+from Avaday.config import ROOT_DIR, np
+from Avaday.Model.config import max_visibility_distance, view_directions, min_weight, max_weight, brain_size, move_directions, \
     snake_ids
 
 clockwise_turn = np.array([[0, -1], [1, 0]])

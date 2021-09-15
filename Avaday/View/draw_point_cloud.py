@@ -1,10 +1,10 @@
 import pyqtgraph.opengl as gl
 
-from Avaday.globals import np
-from Avaday.View.parameters import default_shift
+from Avaday.config import np
+from Avaday.View.config import default_shift
 
 from Avaday.View.get_point_cloud import x_grid, y_grid, z_grid, colors
-from Avaday.View.parameters import dot_opaqueness, dot_size
+from Avaday.View.config import dot_opaqueness, dot_size
 
 
 def set_opaqueness_of_image_dots():
@@ -20,9 +20,9 @@ def get_centered_board():
     return np.array([shift_points(x_grid), shift_points(y_grid), z_grid]).T
 
 
-import View.app
+import Avaday.View.app
 
-widget = View.app.widget
+widget = Avaday.View.app.widget
 
 
 def draw_point_cloud():

@@ -1,12 +1,12 @@
-from Avaday.View.parameters import board_size, board_height
-from Avaday.globals import np
+from Avaday.View.config import BOARD_SIZE, board_height
+from Avaday.config import np
 from Avaday.View.get_image import get_image
 
 
 def get_coordinate_grid():
     """get x, y grid coordinates"""
     x_grid, y_grid = np.meshgrid(
-        np.arange(board_size), np.arange(board_size), indexing="ij"
+        np.arange(BOARD_SIZE), np.arange(BOARD_SIZE), indexing="ij"
     )
     return x_grid.ravel(), y_grid.ravel()
 

@@ -1,18 +1,18 @@
-from Avaday.globals import np
-from Avaday.Model.parameters import board_size, snake_ids
+from Avaday.config import np
+from Avaday.Model.config import BOARD_SIZE, snake_ids
 
 
 def clear_field():
-    return np.array([[set() for _ in range(board_size)] for _ in range(board_size)])
+    return np.array([[set() for _ in range(BOARD_SIZE)] for _ in range(BOARD_SIZE)])
 
 
 field = clear_field()
 
 
 def add_randomly_visited_cells(snake):
-    number_of_randomly_visited_cells = board_size
+    number_of_randomly_visited_cells = BOARD_SIZE
     for cell in range(number_of_randomly_visited_cells):
-        i, j = np.random.randint(low=0, high=board_size - 1, size=2)
+        i, j = np.random.randint(low=0, high=BOARD_SIZE - 1, size=2)
         field[i][j].add(snake)
 
 

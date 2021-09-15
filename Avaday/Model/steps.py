@@ -4,13 +4,13 @@ import Avaday.Model.brain
 
 snake_brains = Avaday.Model.brain.snake_brains
 
-from Avaday.globals import np
+from Avaday.config import np
 from Avaday.Model.brain import symmetric_brain_coordinates, brain_coordinates, clockwise_powers
-from Avaday.Model.parameters import board_size, view_directions
+from Avaday.Model.config import BOARD_SIZE, view_directions
 
 
 def on_board(point):
-    return np.all((0 <= point) & (point < board_size))
+    return np.all((0 <= point) & (point < BOARD_SIZE))
 
 
 def visited(point, snake):

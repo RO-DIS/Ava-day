@@ -3,9 +3,9 @@ import Avaday.Model.board
 import Avaday.Model.brain
 snake_brains = Avaday.Model.brain.snake_brains
 
-from Avaday.Model.parameters import batch_size, number_of_snakes, snake_ids, number_of_parents, number_of_kids, brain_size, \
+from Avaday.Model.config import batch_size, number_of_snakes, snake_ids, number_of_parents, number_of_kids, brain_size, \
     weights_size, mutation_sample_size, min_mutation, max_mutation, epochs
-from Avaday.globals import ROOT_DIR, np
+from Avaday.config import ROOT_DIR, np
 from Avaday.Model.path import get_snake_path_length
 from pathlib import Path
 

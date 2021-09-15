@@ -1,4 +1,4 @@
-from Avaday.globals import np, board_size
+from Avaday.config import np, BOARD_SIZE
 
 epochs = 7
 batch_size = 5

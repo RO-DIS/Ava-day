@@ -1,6 +1,6 @@
 import Avaday.Model.brain as brain
 import Avaday.Model.path as path
-from Avaday.Model.parameters import top_batch
+from Avaday.Model.config import top_batch
 
 
 def save_top_paths():

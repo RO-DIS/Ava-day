@@ -36,26 +36,11 @@
     ```sh
     pip install pillow
     ```
-<!-- 
-1. Install PyOpenGL
-
-    ```sh
-    pip install PyOpenGL
-    ```
-
-1. Install OpenGL
-
-    ```sh
-    sudo apt-get install libglu1-mesa-dev freeglut3-dev mesa-common-dev
-    sudo apt-get update
-    ``` -->
-
-
 
 1. Change library a bit
 
     We need to fix a bug with camera in GL file, so
-    go to *View/app.py*, `Ctrl+Left mouse click` on
+    go to *Avaday/View/app.py*, `Ctrl+Left mouse click` on
 
     ```python
     GLViewWidget
