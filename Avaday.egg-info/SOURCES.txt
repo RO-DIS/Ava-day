@@ -1,6 +1,0 @@
-README.md
-setup.py
-Avaday.egg-info/PKG-INFO
-Avaday.egg-info/SOURCES.txt
-Avaday.egg-info/dependency_links.txt
-Avaday.egg-info/top_level.txt
