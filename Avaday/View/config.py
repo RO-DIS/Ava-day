@@ -54,10 +54,9 @@ window_width = 700
 
 # maximum initial speed of jump
 
-from Avaday.config import ROOT_DIR, np
-from Avaday.main import image_name
+from Avaday.config import ROOT_DIR, np, IMAGE_NAME
 
 # path to image for map
-path_to_image = f"{ROOT_DIR}/resources/images/{image_name}.png"
+path_to_image = f"{ROOT_DIR}/resources/images/{IMAGE_NAME}.png"
 
 max_initial_speed = np.sqrt(2 * g * max_jump_height)
