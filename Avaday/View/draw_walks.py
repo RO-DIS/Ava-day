@@ -1,15 +1,11 @@
-from Avaday.config import BOARD_SIZE, np, ROOT_DIR, NUMBER_OF_PATHS
-import Avaday.View.app
-from Avaday.View.config import LINE_WIDTH, PATH_TO_SAVED_IMAGE
-
-widget = Avaday.View.app.widget
-from Avaday.View.get_image import get_image
 import pyqtgraph.opengl as gl
 import pyqtgraph as pg
+from Avaday.config import BOARD_SIZE, np, ROOT_DIR
+from Avaday.View.config import LINE_WIDTH, PATH_TO_SAVED_IMAGE, BOARD_HEIGHT, OUT_IMAGE_SIDE_IN_PIXELS
+from Avaday.View.get_image import get_image
+from Avaday.View.app import widget
 
 class LineDrawer():
-    MAX_HEIGHT = 20
-
     def __init__(self):
         image = get_image()
         flat_image = self.get_flat_image(image)
@@ -26,8 +22,8 @@ class LineDrawer():
     def get_zs(self, image):
         r,g,b,a = image.T
         hashed = r ** 0.2 + g ** 0.5 + b ** 0.6
-        max_height = np.amax(hashed)
-        return hashed / max_height * self.MAX_HEIGHT
+        height_max = np.amax(hashed)
+        return hashed / height_max * BOARD_HEIGHT
 
     def draw_walk(self, xs, ys):
         zs = self.zs[xs * BOARD_SIZE + ys]
@@ -43,12 +39,14 @@ class LineDrawer():
     def draw_walks(self):
         """draw walks produced by GA"""
         f = open(f"{ROOT_DIR}/resources/paths/path.csv", "r")
-        for _ in range(NUMBER_OF_PATHS):
+        num_walks = sum(1 for _ in f)//2
+        f = open(f"{ROOT_DIR}/resources/paths/path.csv", "r")
+        for _ in range(num_walks):
             xs, ys = np.loadtxt(fname=f, delimiter=",", max_rows=2).astype(int)
             self.draw_walk(xs, ys)
 
 
 class ScreenSaver():
     def __init__(self):
-        d = widget.renderToArray((2048, 2048))
+        d = widget.renderToArray((OUT_IMAGE_SIDE_IN_PIXELS, OUT_IMAGE_SIDE_IN_PIXELS))
         pg.makeQImage(d).save(PATH_TO_SAVED_IMAGE)

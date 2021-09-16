@@ -2,11 +2,11 @@ from PyQt6.uic.properties import QtGui
 from PyQt6.QtWidgets import QApplication
 import pyqtgraph.opengl as gl
 
-from Avaday.View.config import view_height, elevation, azimuth, background_color, window_width, window_height
+from Avaday.View.config import BOARD_SIZE, VIEW_HEIGHT, VIEW_ELEVATION, \
+    VIEW_AZIMUTH, BACKGROUND_COLOR, WINDOW_WIDTH, WINDOW_HEIGHT
 
 application = QApplication([])
 widget = gl.GLViewWidget()
-from Avaday.View.config import BOARD_SIZE
 
 # move frame of reference
 widget.pan(BOARD_SIZE//2,BOARD_SIZE//2,0)
@@ -22,10 +22,10 @@ def setCameraPosition(w, pos=None, distance=None, elevation=None, azimuth=None):
         w.opts['azimuth'] = azimuth
     w.update()
 
-setCameraPosition(w=widget, distance=view_height, elevation=elevation, azimuth=azimuth)
+setCameraPosition(w=widget, distance=VIEW_HEIGHT, elevation=VIEW_ELEVATION, azimuth=VIEW_AZIMUTH)
 
-widget.setBackgroundColor(background_color)
-widget.setFixedWidth(window_width)
-widget.setFixedHeight(window_height)
+widget.setBackgroundColor(BACKGROUND_COLOR)
+widget.setFixedWidth(WINDOW_WIDTH)
+widget.setFixedHeight(WINDOW_HEIGHT)
 
 widget.show()
