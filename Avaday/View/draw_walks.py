@@ -1,7 +1,10 @@
 import pyqtgraph.opengl as gl
 import pyqtgraph as pg
-from Avaday.config import BOARD_SIZE, np, ROOT_DIR
-from Avaday.View.config import LINE_WIDTH, PATH_TO_SAVED_IMAGE, BOARD_HEIGHT, OUT_IMAGE_SIDE_IN_PIXELS
+from Avaday.config import ROOT_DIR
+from Avaday.View.config import \
+    LINE_WIDTH, NUMBER_OF_PATHS, PATH_TO_SAVED_IMAGE, BOARD_HEIGHT, \
+        OUT_IMAGE_SIDE_IN_PIXELS, BOARD_SIZE, np, \
+        NUMBER_OF_PATHS
 from Avaday.View.get_image import get_image
 from Avaday.View.app import widget
 
@@ -37,11 +40,8 @@ class LineDrawer():
         widget.addItem(line)
 
     def draw_walks(self):
-        """draw walks produced by GA"""
         f = open(f"{ROOT_DIR}/resources/paths/path.csv", "r")
-        num_walks = sum(1 for _ in f)//2
-        f = open(f"{ROOT_DIR}/resources/paths/path.csv", "r")
-        for _ in range(num_walks):
+        for _ in range(NUMBER_OF_PATHS):
             xs, ys = np.loadtxt(fname=f, delimiter=",", max_rows=2).astype(int)
             self.draw_walk(xs, ys)
 

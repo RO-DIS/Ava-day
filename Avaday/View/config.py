@@ -2,10 +2,8 @@
 BOARD_SIZE = 100
 # maximum height of points after scaling z-coordinates
 BOARD_HEIGHT = 20
-# adding speed to make jumps lower
-MINIMAL_SPEED_BOOST, MAXIMAL_SPEED_BOOST = 5, 6
 # width of lines on path
-LINE_WIDTH = 5
+LINE_WIDTH = 3
 # distance from origin for viewing pictures
 VIEW_HEIGHT, VIEW_ELEVATION, VIEW_AZIMUTH = 110, 90, 0
 # 125, 30, -30
@@ -27,3 +25,14 @@ PATH_TO_IMAGE = f"{ROOT_DIR}/resources/images/{IMAGE_NAME}.png"
 PATH_TO_SAVED_IMAGE = f"{ROOT_DIR}/resources/output_images/{IMAGE_NAME}.png"
 
 OUT_IMAGE_SIDE_IN_PIXELS = 1000
+
+# seed for random
+RANDOM_SEED = 1828283
+
+import numpy as np
+np.seterr(all='raise')
+np.random.seed(RANDOM_SEED)
+
+# Length of board side
+BOARD_SIZE = 100
+NUMBER_OF_PATHS = 3700

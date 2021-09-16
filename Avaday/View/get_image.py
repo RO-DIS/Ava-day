@@ -1,7 +1,6 @@
 from PIL import Image
 
-from Avaday.View.config import PATH_TO_IMAGE, IMAGE_SIDE, BOARD_SIZE
-from Avaday.config import np
+from Avaday.View.config import PATH_TO_IMAGE, IMAGE_SIDE, BOARD_SIZE, np
 
 
 def read_image():
@@ -13,7 +12,7 @@ def read_image():
 
 def check_image_size(image):
     """check if image is RGBA square with given side"""
-    assert image.shape == tuple([IMAGE_SIDE, IMAGE_SIDE, 4])
+    assert image.shape == (IMAGE_SIDE, IMAGE_SIDE, 4)
 
 
 def read_valid_image():
