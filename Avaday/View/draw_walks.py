@@ -6,7 +6,7 @@ widget = Avaday.View.app.widget
 from Avaday.View.get_image import get_image
 import pyqtgraph.opengl as gl
 
-class Draw():
+class LineDrawer():
     MAX_HEIGHT = 20
 
     def __init__(self):
