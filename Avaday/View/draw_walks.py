@@ -1,10 +1,11 @@
 from Avaday.config import BOARD_SIZE, np, ROOT_DIR, NUMBER_OF_PATHS
 import Avaday.View.app
-from Avaday.View.config import LINE_WIDTH
+from Avaday.View.config import LINE_WIDTH, PATH_TO_IMAGE
 
 widget = Avaday.View.app.widget
 from Avaday.View.get_image import get_image
 import pyqtgraph.opengl as gl
+import pyqtgraph as pg
 
 class LineDrawer():
     MAX_HEIGHT = 20
@@ -33,12 +34,11 @@ class LineDrawer():
         points = np.array([xs, ys, zs]).T
         color = self.colors[xs * BOARD_SIZE + ys]
         
-        for i in range(len(points)-1):
-            line = gl.GLLinePlotItem()
-            line.setGLOptions("translucent")
-            line.setData(pos=np.array([points[i],points[i+1]]), color=tuple(color[i]), width=LINE_WIDTH)
+        line = gl.GLLinePlotItem()
+        line.setGLOptions("translucent")
+        line.setData(pos=points, color=color, width=LINE_WIDTH)
 
-            widget.addItem(line)
+        widget.addItem(line)
 
     def draw_walks(self):
         """draw walks produced by GA"""

@@ -1,12 +1,12 @@
 from PIL import Image
 
-from Avaday.View.config import path_to_image, image_side, BOARD_SIZE
+from Avaday.View.config import PATH_TO_IMAGE, image_side, BOARD_SIZE
 from Avaday.config import np
 
 
 def read_image():
     """open PNG image and check it for validity"""
-    image = Image.open(path_to_image)
+    image = Image.open(PATH_TO_IMAGE)
     image = np.asarray(image).astype(np.float32)
     return image
 
