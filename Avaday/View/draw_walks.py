@@ -1,6 +1,6 @@
 from Avaday.config import BOARD_SIZE, np, ROOT_DIR, NUMBER_OF_PATHS
 import Avaday.View.app
-from Avaday.View.config import LINE_WIDTH, PATH_TO_IMAGE
+from Avaday.View.config import LINE_WIDTH, PATH_TO_SAVED_IMAGE
 
 widget = Avaday.View.app.widget
 from Avaday.View.get_image import get_image
@@ -46,3 +46,9 @@ class LineDrawer():
         for _ in range(NUMBER_OF_PATHS):
             xs, ys = np.loadtxt(fname=f, delimiter=",", max_rows=2).astype(int)
             self.draw_walk(xs, ys)
+
+
+class ScreenSaver():
+    def __init__(self):
+        d = widget.renderToArray((2048, 2048))
+        pg.makeQImage(d).save(PATH_TO_SAVED_IMAGE)

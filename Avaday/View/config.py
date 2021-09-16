@@ -15,7 +15,7 @@ IS_VISIBLE_DOTS = False
 # show walks?
 IS_VISIBLE_WALKS = True
 # width of lines on path
-LINE_WIDTH = 3
+LINE_WIDTH = 5
 # for picture dots
 dot_opaqueness = 1.0
 number_of_random_walks = 50
@@ -58,5 +58,5 @@ from Avaday.config import ROOT_DIR, np, IMAGE_NAME
 
 # path to image for map
 PATH_TO_IMAGE = f"{ROOT_DIR}/resources/images/{IMAGE_NAME}.png"
-
+PATH_TO_SAVED_IMAGE = f"{ROOT_DIR}/resources/output_images/{IMAGE_NAME}.png"
 max_initial_speed = np.sqrt(2 * g * max_jump_height)
