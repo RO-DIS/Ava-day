@@ -1,14 +1,14 @@
 import sys, os
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout
-from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QPixmap
+from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout
+from PyQt6.QtCore import Qt
+from PyQt6.QtGui import QDragEnterEvent, QDragMoveEvent, QDropEvent, QPixmap
 
 
 class ImageLabel(QLabel):
     def __init__(self):
         super().__init__()
 
-        self.setAlignment(Qt.AlignCenter)
+        self.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.setText('\n\n Drop Image Here \n\n')
         self.setStyleSheet('''
             QLabel{
@@ -32,21 +32,21 @@ class AppDemo(QWidget):
 
         self.setLayout(mainLayout)
 
-    def dragEnterEvent(self, event):
+    def dragEnterEvent(self, event: QDragEnterEvent):
         if event.mimeData().hasImage:
             event.accept()
         else:
             event.ignore()
 
-    def dragMoveEvent(self, event):
+    def dragMoveEvent(self, event: QDragMoveEvent):
         if event.mimeData().hasImage:
             event.accept()
         else:
             event.ignore()
 
-    def dropEvent(self, event):
+    def dropEvent(self, event: QDropEvent):
         if event.mimeData().hasImage:
-            event.setDropAction(Qt.CopyAction)
+            event.setDropAction(Qt.DropAction.CopyAction)
             file_path = event.mimeData().urls()[0].toLocalFile()
             self.set_image(file_path)
 
@@ -60,4 +60,4 @@ class AppDemo(QWidget):
 app = QApplication(sys.argv)
 demo = AppDemo()
 demo.show()
-sys.exit(app.exec_())
+app.exec()
