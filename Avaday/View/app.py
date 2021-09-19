@@ -1,4 +1,3 @@
-from PyQt6.uic.properties import QtGui
 from PyQt6.QtWidgets import QApplication
 import pyqtgraph.opengl as gl
 

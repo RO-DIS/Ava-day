@@ -6,32 +6,34 @@
 
 ## Linux installation
 
-1. Create and activate virtual environment
+1. Open terminal in the project root folder
+
+2. Create and activate virtual environment
 
    ```sh
-   conda create -n TM python=3.7
-   conda activate TM
+   conda create -n Avaday python=3.7
+   conda activate Avaday
    ```
 
-1. Install this application to [make imports work](https://stackoverflow.com/a/50194143)
+3. Install this application to [make imports work](https://stackoverflow.com/a/50194143)
 
    ```sh
    pip install -e .
    ```
 
-1. Install _PyQt6_
+4. Install _PyQt6_
 
     ```sh
     pip install PyQt6
     ```
 
-1. Install pyqtgraph
+5. Install pyqtgraph
 
     ```sh
     pip install pyqtgraph
     ```
 
-1. Install PIL
+6. Install PIL
 
     ```sh
     pip install pillow
@@ -39,6 +41,10 @@
 
 ## Running on Linux
 
-```sh
-python main.py
-```
+1. In terminal from project root folder
+
+    ```sh
+    python main.py
+    ```
+
+1. See output in /resources/output_images

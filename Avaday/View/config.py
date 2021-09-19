@@ -24,7 +24,7 @@ from Avaday.config import ROOT_DIR, IMAGE_NAME
 PATH_TO_IMAGE = f"{ROOT_DIR}/resources/images/{IMAGE_NAME}.png"
 PATH_TO_SAVED_IMAGE = f"{ROOT_DIR}/resources/output_images/{IMAGE_NAME}.png"
 
-OUT_IMAGE_SIDE_IN_PIXELS = 1000
+OUT_IMAGE_SIDE_IN_PIXELS = 670
 
 # seed for random
 RANDOM_SEED = 1828283
