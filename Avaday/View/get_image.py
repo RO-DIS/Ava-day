@@ -19,7 +19,7 @@ def get_image(file_path):
     path_to_png = f"{ROOT_DIR}/resources/user_images/{file_name}.png"
     img.save(path_to_png)
 
-    img = Image.open(f"{ROOT_DIR}/resources/user_images/{file_name}.png")
+    img = Image.open(path_to_png)
     img = np.asarray(img).astype(np.float32)
 
     factor = IMAGE_SIDE // BOARD_SIZE
