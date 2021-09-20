@@ -22,7 +22,7 @@ class ImageLabel(QLabel):
 class DragNDropWidget(QWidget):
     def __init__(self):
         super().__init__()
-        self.resize(400, 400)
+        # self.resize(400, 400)
         self.setAcceptDrops(True)
 
         mainLayout = QVBoxLayout()

@@ -1,10 +1,10 @@
-from Avaday.View.GUI.gui import Ui_Dialog
+from Avaday.View.Design.gui import Ui_Dialog
 import sys
 from PyQt6 import QtCore
 from PyQt6.QtWidgets import QApplication, QDialog, QVBoxLayout
 from Avaday.View.app import GeneratedPictureWidget
 from Avaday.View.draw_walks import LineDrawer, ScreenSaver
-from Avaday.View.GUI.drag_n_drop import DragNDropWidget, ImageLabel
+from Avaday.View.Widgets.drag_n_drop import DragNDropWidget
 
 
 class Custom():
