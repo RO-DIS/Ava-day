@@ -17,6 +17,8 @@ class ImageLabel(QLabel):
             }
         ''')
 
+        self.setScaledContents(True)
+
     def setPixmap(self, image):
         super().setPixmap(image)
 

@@ -11,9 +11,10 @@ class ImageLabel(QLabel):
         self.setText('\n\n Output Image Appears Here \n\n')
         self.setStyleSheet('''
             QLabel{
-                border: 4px dashed #aaa
+                border: 4px dashed #aaa;
             }
         ''')
+        self.setScaledContents(True)
 
     def setPixmap(self, image):
         super().setPixmap(image)
