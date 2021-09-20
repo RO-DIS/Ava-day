@@ -31,6 +31,7 @@ class DragNDropWidget(QWidget):
         mainLayout.addWidget(self.photoViewer)
 
         self.setLayout(mainLayout)
+        self.show()
 
     def dragEnterEvent(self, event: QDragEnterEvent):
         if event.mimeData().hasImage:
@@ -62,9 +63,10 @@ class DragNDropWidget(QWidget):
     def call_generator(self, file_path):
         pass
 
+
+
 if __name__ == "__main__":
     if (sys.flags.interactive != 1):
         app = QApplication(sys.argv)
         demo = DragNDropWidget()
-        demo.show()
         app.exec()
