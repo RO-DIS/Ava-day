@@ -19,10 +19,10 @@ class ImageLabel(QLabel):
     def setPixmap(self, image):
         super().setPixmap(image)
 
-class DragNDropWidget(QWidget):
+class DragNDropInput(QWidget):
     def __init__(self):
         super().__init__()
-        # self.resize(400, 400)
+        self.resize(400, 400)
         self.setAcceptDrops(True)
 
         mainLayout = QVBoxLayout()
@@ -68,5 +68,5 @@ class DragNDropWidget(QWidget):
 if __name__ == "__main__":
     if (sys.flags.interactive != 1):
         app = QApplication(sys.argv)
-        demo = DragNDropWidget()
+        demo = DragNDropInput()
         app.exec()

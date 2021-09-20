@@ -4,7 +4,7 @@ from Avaday.View.config import BOARD_SIZE, VIEW_HEIGHT, VIEW_ELEVATION, \
     VIEW_AZIMUTH, BACKGROUND_COLOR, WINDOW_WIDTH, WINDOW_HEIGHT
 
 
-class GeneratedPictureWidget(gl.GLViewWidget):
+class ViewSpace(gl.GLViewWidget):
     def __init__(self):
         super().__init__()
         self.pan(BOARD_SIZE//2,BOARD_SIZE//2,0)
