@@ -5,7 +5,7 @@ import pyqtgraph.opengl as gl
 import pyqtgraph as pg
 from Avaday.config import ROOT_DIR
 from Avaday.View.config import \
-    LINE_WIDTH, NUMBER_OF_PATHS, PATH_TO_SAVED_IMAGE, BOARD_HEIGHT, \
+    LINE_WIDTH, NUMBER_OF_PATHS, BOARD_HEIGHT, \
         OUT_IMAGE_SIDE_IN_PIXELS, BOARD_SIZE, np, \
         NUMBER_OF_PATHS
 from Avaday.View.get_image import get_image
@@ -21,13 +21,13 @@ class LineDrawer():
         self.draw_walks()
 
     def get_flat_image(self, image):
-        return np.reshape(a=image, newshape=(image.shape[0] ** 2, 4))
+        return np.reshape(a=image, newshape=(image.shape[0] ** 2, 3))
 
     def get_normalized_colors(self, image):
         return (image / 255.).astype(np.float32)
 
     def get_zs(self, image):
-        r,g,b,a = image.T
+        r,g,b = image.T
         hashed = r ** 0.2 + g ** 0.5 + b ** 0.6
         height_max = np.amax(hashed)
         return hashed / height_max * BOARD_HEIGHT
