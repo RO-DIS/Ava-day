@@ -27,6 +27,3 @@ def get_image(file_path):
     img = img[:BOARD_SIZE, :BOARD_SIZE]
 
     return img
-
-
-
