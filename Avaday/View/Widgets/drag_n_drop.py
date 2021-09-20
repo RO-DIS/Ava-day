@@ -51,9 +51,6 @@ class DragNDropInput(QWidget):
             event.setDropAction(Qt.DropAction.CopyAction)
             file_path = event.mimeData().urls()[0].toLocalFile()
             self.set_image(file_path)
-
-            self.call_generator(file_path)
-
             event.accept()
         else:
             event.ignore()
@@ -61,7 +58,7 @@ class DragNDropInput(QWidget):
 
     # signal when image is set
     image_set = pyqtSignal(str)
-    
+
     def set_image(self, file_path):
         self.photoViewer.setPixmap(QPixmap(file_path))
         self.image_set.emit(file_path)

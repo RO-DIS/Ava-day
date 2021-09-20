@@ -1,3 +1,4 @@
+from Avaday.View.draw_walks import ImageUpdater
 import sys
 from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout
 from PyQt6.QtCore import Qt, pyqtSlot
@@ -21,7 +22,7 @@ class ImageLabel(QLabel):
 
 class GeneratedPicture(QWidget):
     """shows a picture, when provided with a file path"""
-    def __init__(self):
+    def __init__(self, updater: ImageUpdater):
         super().__init__()
         self.resize(400, 400)
         mainLayout = QVBoxLayout()
@@ -31,8 +32,10 @@ class GeneratedPicture(QWidget):
 
         self.setLayout(mainLayout)
         self.show()
+
+        updater.new_generated_picture.connect(self.update_image)
     
-    @pyqtSlot
+    @pyqtSlot(str)
     def update_image(self, file_path):
         self.photoViewer.setPixmap(QPixmap(file_path))
 
