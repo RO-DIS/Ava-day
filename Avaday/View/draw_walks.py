@@ -57,22 +57,25 @@ class ScreenSaver():
 from pathlib import Path
 
 class ImageUpdater(QWidget):
-    def __init__(self, dnd: DragNDropInput):
+    # if want to use signals, inherit from QWidget or similar
+    def __init__(self, dnd: DragNDropInput, ):
         super().__init__()
-        dnd.image_set.connect(self.update_saved_picture)
-    
-    def update_saved_picture(self, path):
-        space = ViewSpace()
-        LineDrawer(space, path)
+        dnd.image_set.connect(self.on_new_picture)
 
+    @pyqtSlot(str)
+    def on_new_picture(self, path):
+        self.view_space = ViewSpace()
+        self.view_space.mouse_moved.connect(self.update_show_picture)
+
+        LineDrawer(self.view_space, path)
+        
         p = Path(path)
         picture_name = p.stem
-        path_to_saved_image = f"{ROOT_DIR}/resources/output_images/{picture_name}.png"
+        self.path_to_saved_image = f"{ROOT_DIR}/resources/output_images/{picture_name}.png"
 
-        ScreenSaver(space, path_to_saved_image)
-
-        self.update_show_picture(path_to_saved_image)
+        self.update_show_picture()
 
     new_generated_picture = pyqtSignal(str)
-    def update_show_picture(self, path):
-        self.new_generated_picture.emit(path)
+    def update_show_picture(self):
+        ScreenSaver(self.view_space, self.path_to_saved_image)
+        self.new_generated_picture.emit(self.path_to_saved_image)

@@ -1,3 +1,4 @@
+from PyQt6.QtCore import pyqtSignal
 import pyqtgraph.opengl as gl
 
 from Avaday.View.config import BOARD_SIZE, VIEW_HEIGHT, VIEW_ELEVATION, \
@@ -24,3 +25,7 @@ class ViewSpace(gl.GLViewWidget):
         if azimuth is not None:
             self.opts['azimuth'] = azimuth
         self.update()
+
+    mouse_moved = pyqtSignal()
+    def mouseReleaseEvent(self, ev):
+        self.mouse_moved.emit()

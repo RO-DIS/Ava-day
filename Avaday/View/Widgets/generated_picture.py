@@ -1,10 +1,8 @@
 from Avaday.View.draw_walks import ImageUpdater
 import sys
 from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout
-from PyQt6.QtCore import Qt, pyqtSlot
+from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QPixmap
-
-from Avaday.View.Widgets.view_space import ViewSpace
 
 class ImageLabel(QLabel):
     def __init__(self):
