@@ -45,7 +45,6 @@ class LineDrawer():
             xs, ys = np.loadtxt(fname=f, delimiter=",", max_rows=2).astype(int)
             self.draw_walk(xs, ys)
 
-
 class ScreenSaver():
     def __init__(self, widget):
         d = widget.renderToArray((OUT_IMAGE_SIDE_IN_PIXELS, OUT_IMAGE_SIDE_IN_PIXELS))

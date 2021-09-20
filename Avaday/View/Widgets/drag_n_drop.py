@@ -1,6 +1,6 @@
 import sys, os
 from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout
-from PyQt6.QtCore import Qt
+from PyQt6.QtCore import Qt, pyqtSignal
 from PyQt6.QtGui import QDragEnterEvent, QDragMoveEvent, QDropEvent, QPixmap
 
 
@@ -33,6 +33,10 @@ class DragNDropInput(QWidget):
         self.setLayout(mainLayout)
         self.show()
 
+        # signal when image is set
+        self.image_set = pyqtSignal(str)
+
+
     def dragEnterEvent(self, event: QDragEnterEvent):
         if event.mimeData().hasImage:
             event.accept()
@@ -59,9 +63,7 @@ class DragNDropInput(QWidget):
 
     def set_image(self, file_path):
         self.photoViewer.setPixmap(QPixmap(file_path))
-
-    def call_generator(self, file_path):
-        pass
+        self.image_set.emit(file_path)
 
 
 

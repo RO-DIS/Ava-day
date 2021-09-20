@@ -1,6 +1,6 @@
 import sys
 from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout
-from PyQt6.QtCore import Qt
+from PyQt6.QtCore import Qt, pyqtSlot
 from PyQt6.QtGui import QPixmap
 
 from Avaday.View.Widgets.view_space import ViewSpace
@@ -31,10 +31,10 @@ class GeneratedPicture(QWidget):
 
         self.setLayout(mainLayout)
         self.show()
-
-    def set_image(self, file_path):
+    
+    @pyqtSlot
+    def update_image(self, file_path):
         self.photoViewer.setPixmap(QPixmap(file_path))
-
 
 if __name__ == "__main__":
     if (sys.flags.interactive != 1):
