@@ -26,7 +26,8 @@ class Custom(QWidget):
         ui.button_save_as.clicked.connect(self.save_as)
 
     def save_as(self, ev):
-        file_name, _ = QFileDialog.getSaveFileName(self, 'Open File', '~/Desktop', "Image (*.png *.jpg *jpeg)")
+        file_name, _ = QFileDialog.getSaveFileName(parent=self, caption='Open File', directory='./',
+            initialFilter="Image (*.png *.jpg *jpeg)")
         if file_name:
             shutil.copy2(src=self.upd.path_to_saved_image, dst = file_name)
 
