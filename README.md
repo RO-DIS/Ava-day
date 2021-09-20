@@ -51,4 +51,4 @@
 
 4. When you have found a cool view, click on `Save as` button to choose where to save your avatar.
 
-5. Type some `name.png` and click on `Save`. Ta-da!
+5. Type some `name.png`, choose a folder, and click on `Save`. Ta-da!
