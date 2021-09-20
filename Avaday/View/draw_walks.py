@@ -1,3 +1,7 @@
+from Avaday.View.Widgets.drag_n_drop import DragNDropInput
+from _typeshed import Self
+import PyQt6
+from PyQt6.QtCore import pyqtSlot, pyqtSignal
 import pyqtgraph.opengl as gl
 import pyqtgraph as pg
 from Avaday.config import ROOT_DIR
@@ -6,11 +10,12 @@ from Avaday.View.config import \
         OUT_IMAGE_SIDE_IN_PIXELS, BOARD_SIZE, np, \
         NUMBER_OF_PATHS
 from Avaday.View.get_image import get_image
+from Avaday.View.Widgets.view_space import ViewSpace
 
 class LineDrawer():
-    def __init__(self, widget):
+    def __init__(self, widget, file_path):
         self.widget = widget
-        image = get_image()
+        image = get_image(file_path=file_path)
         flat_image = self.get_flat_image(image)
         self.colors = self.get_normalized_colors(flat_image)
         self.zs = self.get_zs(flat_image)
@@ -49,3 +54,21 @@ class ScreenSaver():
     def __init__(self, widget):
         d = widget.renderToArray((OUT_IMAGE_SIDE_IN_PIXELS, OUT_IMAGE_SIDE_IN_PIXELS))
         pg.makeQImage(d).save(PATH_TO_SAVED_IMAGE)
+
+class ImageUpdater():
+    def __init__(self, dnd: DragNDropInput) -> None:
+        dnd.set_image.connect(self.update_saved_picture)
+        pass
+    
+    @pyqtSlot
+    def update_saved_picture(self, path):
+        space = ViewSpace()
+        LineDrawer(space, path)
+        ScreenSaver(space)
+        self.update_saved_picture(PATH_TO_SAVED_IMAGE)
+        pass
+
+    # TODO extract filename
+    new_generated_picture = pyqtSignal
+    def update_show_picture(self, path):
+        self.new_generated_picture.emit(path)

@@ -33,9 +33,6 @@ class DragNDropInput(QWidget):
         self.setLayout(mainLayout)
         self.show()
 
-        # signal when image is set
-        self.image_set = pyqtSignal(str)
-
 
     def dragEnterEvent(self, event: QDragEnterEvent):
         if event.mimeData().hasImage:
@@ -61,6 +58,10 @@ class DragNDropInput(QWidget):
         else:
             event.ignore()
 
+
+    # signal when image is set
+    image_set = pyqtSignal(str)
+    
     def set_image(self, file_path):
         self.photoViewer.setPixmap(QPixmap(file_path))
         self.image_set.emit(file_path)
