@@ -3,9 +3,12 @@ from PyQt6.QtWidgets import QApplication
 from pyqtgraph.Qt import QtCore
 
 from Avaday.View.draw_walks import LineDrawer, ScreenSaver
+from Avaday.View.app import GeneratedPictureWidget
 
 if __name__ == "__main__":
     if (sys.flags.interactive != 1) or not hasattr(QtCore, "PYQT_VERSION"):
-        LineDrawer()
-        ScreenSaver()
-        QApplication.instance().exec()
+        app = QApplication([])
+        widget = GeneratedPictureWidget()
+        LineDrawer(widget)
+        ScreenSaver(widget)
+        app.exec()

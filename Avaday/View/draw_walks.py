@@ -6,10 +6,10 @@ from Avaday.View.config import \
         OUT_IMAGE_SIDE_IN_PIXELS, BOARD_SIZE, np, \
         NUMBER_OF_PATHS
 from Avaday.View.get_image import get_image
-from Avaday.View.app import widget
 
 class LineDrawer():
-    def __init__(self):
+    def __init__(self, widget):
+        self.widget = widget
         image = get_image()
         flat_image = self.get_flat_image(image)
         self.colors = self.get_normalized_colors(flat_image)
@@ -37,7 +37,7 @@ class LineDrawer():
         line.setGLOptions("translucent")
         line.setData(pos=points, color=color, width=LINE_WIDTH)
 
-        widget.addItem(line)
+        self.widget.addItem(line)
 
     def draw_walks(self):
         f = open(f"{ROOT_DIR}/resources/paths/path.csv", "r")
@@ -47,6 +47,6 @@ class LineDrawer():
 
 
 class ScreenSaver():
-    def __init__(self):
+    def __init__(self, widget):
         d = widget.renderToArray((OUT_IMAGE_SIDE_IN_PIXELS, OUT_IMAGE_SIDE_IN_PIXELS))
         pg.makeQImage(d).save(PATH_TO_SAVED_IMAGE)

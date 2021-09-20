@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>370</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QWidget" name="widget_drag_n_drop" native="true">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>40</y>
+     <width>251</width>
+     <height>251</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="widget_generated_output" native="true">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>40</y>
+     <width>250</width>
+     <height>250</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="button_save_as">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>300</y>
+     <width>140</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Save as</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

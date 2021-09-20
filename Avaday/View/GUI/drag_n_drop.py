@@ -19,7 +19,7 @@ class ImageLabel(QLabel):
     def setPixmap(self, image):
         super().setPixmap(image)
 
-class AppDemo(QWidget):
+class DragNDropWidget(QWidget):
     def __init__(self):
         super().__init__()
         self.resize(400, 400)
@@ -50,6 +50,8 @@ class AppDemo(QWidget):
             file_path = event.mimeData().urls()[0].toLocalFile()
             self.set_image(file_path)
 
+            self.call_generator(file_path)
+
             event.accept()
         else:
             event.ignore()
@@ -57,7 +59,12 @@ class AppDemo(QWidget):
     def set_image(self, file_path):
         self.photoViewer.setPixmap(QPixmap(file_path))
 
-app = QApplication(sys.argv)
-demo = AppDemo()
-demo.show()
-app.exec()
+    def call_generator(self, file_path):
+        pass
+
+if __name__ == "__main__":
+    if (sys.flags.interactive != 1):
+        app = QApplication(sys.argv)
+        demo = DragNDropWidget()
+        demo.show()
+        app.exec()
