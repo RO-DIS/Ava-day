@@ -1,3 +1,4 @@
+from PyQt6.QtWidgets import QWidget
 from Avaday.View.Widgets.drag_n_drop import DragNDropInput
 from PyQt6.QtCore import pyqtSlot, pyqtSignal
 import pyqtgraph.opengl as gl
@@ -55,11 +56,11 @@ class ScreenSaver():
 
 from pathlib import Path
 
-class ImageUpdater():
-    def __init__(self, dnd: DragNDropInput) -> None:
+class ImageUpdater(QWidget):
+    def __init__(self, dnd: DragNDropInput):
+        super().__init__()
         dnd.image_set.connect(self.update_saved_picture)
     
-    @pyqtSlot(str)
     def update_saved_picture(self, path):
         space = ViewSpace()
         LineDrawer(space, path)

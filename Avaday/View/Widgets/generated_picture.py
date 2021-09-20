@@ -35,7 +35,6 @@ class GeneratedPicture(QWidget):
 
         updater.new_generated_picture.connect(self.update_image)
     
-    @pyqtSlot(str)
     def update_image(self, file_path):
         self.photoViewer.setPixmap(QPixmap(file_path))
 
