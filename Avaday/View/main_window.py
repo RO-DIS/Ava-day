@@ -1,13 +1,16 @@
+from re import S
 from Avaday.View.Design.gui import Ui_Dialog
 import sys
 from PyQt6 import QtCore
-from PyQt6.QtWidgets import QApplication, QDialog, QVBoxLayout
+from PyQt6.QtWidgets import QApplication, QDialog, QFileDialog, QVBoxLayout, QWidget
 from Avaday.View.Widgets.drag_n_drop import DragNDropInput
 from Avaday.View.Widgets.generated_picture import GeneratedPicture
 from Avaday.View.draw_walks import ImageUpdater
+import shutil
 
-class Custom():
+class Custom(QWidget):
     def __init__(self, ui: Ui_Dialog):
+        super().__init__()
         # add drag'n'drop widget to dialog
         self.dnd = DragNDropInput()
         ui.widget_drag_n_drop.setLayout(QVBoxLayout())
@@ -19,6 +22,13 @@ class Custom():
         self.pic = GeneratedPicture(self.upd)
         ui.widget_generated_output.setLayout(QVBoxLayout())
         ui.widget_generated_output.layout().addWidget(self.pic)
+
+        ui.button_save_as.clicked.connect(self.save_as)
+
+    def save_as(self, ev):
+        file_name, _ = QFileDialog.getSaveFileName(self, 'Open File', './', "Image (*.png *.jpg *jpeg)")
+        if file_name:
+            shutil.copy2(src=self.upd.path_to_saved_image, dst = file_name)
 
 
 

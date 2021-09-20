@@ -62,8 +62,13 @@ class ImageUpdater(QWidget):
         super().__init__()
         dnd.image_set.connect(self.on_new_picture)
 
+    view_space = None
+
     @pyqtSlot(str)
     def on_new_picture(self, path):
+        if self.view_space:
+            self.view_space.close()
+            
         self.view_space = ViewSpace()
         self.view_space.mouse_moved.connect(self.update_show_picture)
 
