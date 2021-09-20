@@ -32,7 +32,7 @@ class Custom(QWidget):
 
 
 
-if __name__ == "__main__":
+def run():
     if (sys.flags.interactive != 1) or not hasattr(QtCore, "PYQT_VERSION"):
         app = QApplication([])
         Dialog = QDialog()
@@ -44,3 +44,5 @@ if __name__ == "__main__":
 
         sys.exit(app.exec())
 
+if __name__ == "__main__":
+    run()
