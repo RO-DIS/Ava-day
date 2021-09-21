@@ -1,4 +1,5 @@
 import sys, os
+from PIL.Image import Image
 from PyQt6 import QtGui
 from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout
 from PyQt6.QtCore import Qt, pyqtSignal
