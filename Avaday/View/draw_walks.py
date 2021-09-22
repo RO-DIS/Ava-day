@@ -8,13 +8,13 @@ from Avaday.View.config import \
     LINE_WIDTH, NUMBER_OF_PATHS, BOARD_HEIGHT, \
         OUT_IMAGE_SIDE_IN_PIXELS, BOARD_SIZE, np, \
         NUMBER_OF_PATHS
-from Avaday.View.get_image import get_image
+from Avaday.View.get_image import get_scaled_down_image
 from Avaday.View.Widgets.view_space import ViewSpace
 
 class LineDrawer():
-    def __init__(self, widget, file_path):
+    def __init__(self, widget, path):
         self.widget = widget
-        image = get_image(file_path=file_path)
+        image = get_scaled_down_image(path=path)
         flat_image = self.get_flat_image(image)
         self.colors = self.get_normalized_colors(flat_image)
         self.zs = self.get_zs(flat_image)
@@ -73,17 +73,17 @@ class ImageUpdater(QWidget):
             
         self.view_space = ViewSpace()
         self.view_space.mouse_moved.connect(self.update_generated_picture)
+        self.view_space.wheel_scrolled.connect(self.update_generated_picture)
 
         LineDrawer(self.view_space, path)
-        
-        p = Path(path)
-        picture_name = p.stem
-        self.path_to_saved_image = f"{ROOT_DIR}/resources/output_images/{picture_name}.png"
+
+        picture_name = Path(path).stem
+        self.path_to_generated_image = f"{ROOT_DIR}/resources/output_images/{picture_name}.png"
 
         self.update_generated_picture()
 
-    new_generated_picture = pyqtSignal(str)
+    on_generated_picture = pyqtSignal(str)
     def update_generated_picture(self):
         """save new picture and emit"""
-        ScreenSaver(self.view_space, self.path_to_saved_image)
-        self.new_generated_picture.emit(self.path_to_saved_image)
+        ScreenSaver(self.view_space, self.path_to_generated_image)
+        self.on_generated_picture.emit(self.path_to_generated_image)

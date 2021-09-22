@@ -1,3 +1,4 @@
+from Avaday.View.get_image import get_cropped_rgb_image_path
 import sys, os
 from PIL.Image import Image
 from PyQt6 import QtGui
@@ -54,7 +55,8 @@ class DragNDropInput(QWidget):
         if event.mimeData().hasImage:
             event.setDropAction(Qt.DropAction.CopyAction)
             file_path = event.mimeData().urls()[0].toLocalFile()
-            self.set_image(file_path)
+            new_path = get_cropped_rgb_image_path(file_path)
+            self.set_image(new_path)
             event.accept()
         else:
             event.ignore()
@@ -62,7 +64,6 @@ class DragNDropInput(QWidget):
     # signal when image is set
     image_set = pyqtSignal(str)
     def set_image(self, file_path):
-        self.file_path = file_path
         self.photoViewer.setPixmap(QPixmap(file_path))
         self.image_set.emit(file_path)
 

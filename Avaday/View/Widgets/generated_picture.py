@@ -32,7 +32,7 @@ class GeneratedPicture(QWidget):
         self.setLayout(mainLayout)
         self.show()
 
-        updater.new_generated_picture.connect(self.update_image)
+        updater.on_generated_picture.connect(self.update_image)
     
     def update_image(self, file_path):
         self.photoViewer.setPixmap(QPixmap(file_path))

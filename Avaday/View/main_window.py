@@ -29,7 +29,7 @@ class Custom(QWidget):
         file_name, _ = QFileDialog.getSaveFileName(parent=self, caption='Open File', directory='./',
             initialFilter="Image (*.png *.jpg *jpeg)")
         if file_name:
-            shutil.copy2(src=self.upd.path_to_saved_image, dst = file_name)
+            shutil.copy2(src=self.upd.path_to_generated_image, dst = file_name)
 
 
 

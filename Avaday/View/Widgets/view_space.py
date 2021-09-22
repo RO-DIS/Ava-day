@@ -1,4 +1,5 @@
 from PyQt6.QtCore import pyqtSignal
+import PyQt6.QtCore
 import pyqtgraph.opengl as gl
 
 from Avaday.View.config import BOARD_SIZE, VIEW_HEIGHT, VIEW_ELEVATION, \
@@ -29,3 +30,15 @@ class ViewSpace(gl.GLViewWidget):
     mouse_moved = pyqtSignal()
     def mouseReleaseEvent(self, ev):
         self.mouse_moved.emit()
+
+    wheel_scrolled = pyqtSignal()
+    def wheelEvent(self, ev):
+        delta = ev.angleDelta().x()
+        if delta == 0:
+            delta = ev.angleDelta().y()
+        if (ev.modifiers() & PyQt6.QtCore.Qt.KeyboardModifier.ControlModifier):
+            self.opts['fov'] *= 0.999**delta
+        else:
+            self.opts['distance'] *= 0.999**delta
+        self.update()
+        self.wheel_scrolled.emit()
