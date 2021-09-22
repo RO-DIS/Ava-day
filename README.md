@@ -43,11 +43,11 @@
 
 2. Drag'n'drop an image into app window
 
-3. Do you see a big window with black background?
+3. Do you see a big window with black background? Try to change the view with your mouse or touchpad!
 
-   Click and hold the left mouse button, then move the mouse to change the view.
+   - Click and hold the left mouse button, then move the mouse to change the view. 
 
-   The mini-view in the main window will update too! This is how a little avatar will look like.
+   - You can also scroll your mouse wheel to zoom in or out.
 
 4. When you have found a cool view, click on `Save as` button to choose where to save your avatar.
 
