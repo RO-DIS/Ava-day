@@ -5,8 +5,7 @@ from Avaday.View.config import IMAGE_SIDE, BOARD_SIZE, np
 
 from Avaday.config import ROOT_DIR
 
-def get_cropped_rgb_image_path(path):
-    img = Image.open(path).convert('RGB')
+def get_cropped_center_image(img):
     w, h = img.size
     side = min(w,h)
     center_x = w//2
@@ -15,6 +14,15 @@ def get_cropped_rgb_image_path(path):
     left_top_y = max(0, center_y-side//2)
     img = img.crop((left_top_x, left_top_y, left_top_x + side - 1, left_top_y + side - 1))
     img = img.resize((IMAGE_SIDE, IMAGE_SIDE), Image.ANTIALIAS)
+    
+    return img
+
+def get_cropped_rgb_image_path(path):
+    img = Image.open(path).convert('RGBA')
+    background = Image.new('RGBA', img.size, (255, 255, 255))
+    img = Image.alpha_composite(background, img).convert('RGB')
+
+    img = get_cropped_center_image(img)
 
     p = Path(path)
     file_name = p.stem
@@ -27,7 +35,7 @@ def get_cropped_rgb_image_path(path):
 
 
 def get_scaled_down_image(path):
-    img = Image.open(path).convert('RGB')
+    img = Image.open(path)
     img = np.asarray(img).astype(np.float32)
 
     factor = IMAGE_SIDE // BOARD_SIZE

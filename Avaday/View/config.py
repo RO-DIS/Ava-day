@@ -3,7 +3,7 @@ BOARD_SIZE = 100
 # maximum height of points after scaling z-coordinates
 BOARD_HEIGHT = 20
 # width of lines on path
-LINE_WIDTH = 3
+LINE_WIDTH = 4
 # distance from origin for viewing pictures
 VIEW_HEIGHT, VIEW_ELEVATION, VIEW_AZIMUTH = 110, 90, 0
 # 125, 30, -30
