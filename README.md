@@ -4,7 +4,7 @@
 
 ### (day -> дай == give)
 
-## Linux installation
+## Installation
 
 1. Open terminal in some folder and clone the project
 
@@ -31,7 +31,7 @@
     pip install -r requirements.txt
     ```
 
-## Running on Linux
+## Running
 
 1. Continue in the same terminal. Run application
 
@@ -50,3 +50,7 @@
 4. When you have found a cool view, click on `Save as` button to choose where to save your avatar.
 
 5. Type some `name.png`, choose a folder, and click on `Save`. Ta-da!
+
+## Notes
+
+1. As the default background for png photos is black here, don't drop images like [this one](https://upload.wikimedia.org/wikipedia/ru/thumb/7/78/Trollface.svg/1200px-Trollface.svg.png).

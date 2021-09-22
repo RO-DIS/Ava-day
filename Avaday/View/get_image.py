@@ -19,7 +19,7 @@ def get_cropped_center_image(img):
 
 def get_cropped_rgb_image_path(path):
     img = Image.open(path).convert('RGBA')
-    background = Image.new('RGBA', img.size, (255, 255, 255))
+    background = Image.new('RGBA', img.size, (0, 0, 0))
     img = Image.alpha_composite(background, img).convert('RGB')
 
     img = get_cropped_center_image(img)
