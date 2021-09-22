@@ -18,19 +18,17 @@
    cd Ava-day
    ```
 
-1. [Install Miniconda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html)
-
 1. Create and activate a new virtual environment
 
    ```sh
-   conda create -n Avaday python=3.7
-   conda activate Avaday
+   python -m venv env
+   source env/bin/activate
    ```
 
 1. Install all necessary packages, including [this application](https://stackoverflow.com/a/50194143).
 
     ```sh
-    pip install -e . PyQt6 pyqtgraph pyopengl pillow
+    pip install -r requirements.txt
     ```
 
 ## Running on Linux
