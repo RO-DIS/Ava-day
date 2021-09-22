@@ -26,13 +26,13 @@
 1. Activate it
 
    - On Linux:
-      -  ```sh
-         source env/bin/activate
-         ```
+   ```sh
+   source env/bin/activate
+   ```
    - On Windows:
-      -  ```sh
-         env\Scripts\activate
-         ```
+   ```sh
+   env\Scripts\activate
+   ```
 
 1. Install all necessary packages, including [this application](https://stackoverflow.com/a/50194143).
 
