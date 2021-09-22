@@ -6,7 +6,12 @@
 
 ## Installation
 
-1. Open terminal(Linux) or cmd(`Win+R` on Windows) in some folder and clone the project
+1. Open a terminal in some folder
+   - Linux: `Ctrl+Alt+T` 
+   - Windows: `Win+R` -> Type `cmd` -> Press `Enter`
+   - MacOs: `Cmd+Space` -> Type `terminal` -> Press `Enter`
+
+1. Clone the project
 
    ```sh
    git clone https://github.com/RO-DIS/Ava-day
@@ -42,7 +47,7 @@
 
 ## Running
 
-1. Continue in the same terminal. Run application
+1. Continue in the same terminal. Run the application
 
     ```sh
     python main.py
@@ -62,4 +67,4 @@
 
 ## Notes
 
-1. As the default background for png photos is black here, don't drop images like [this one](https://upload.wikimedia.org/wikipedia/ru/thumb/7/78/Trollface.svg/1200px-Trollface.svg.png).
+1. As the default background for png photos is black here, don't drop images like [this one](https://upload.wikimedia.org/wikipedia/ru/thumb/7/78/Trollface.svg/1200px-Trollface.svg.png)
