@@ -21,7 +21,7 @@
 1. Create and activate a new virtual environment
 
    ```sh
-   python -m venv env
+   python3 -m venv env
    source env/bin/activate
    ```
 
