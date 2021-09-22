@@ -6,7 +6,7 @@
 
 ## Installation
 
-1. Open terminal in some folder and clone the project
+1. Open terminal(Linux) or cmd(`Win+R` on Windows) in some folder and clone the project
 
    ```sh
    git clone https://github.com/RO-DIS/Ava-day
@@ -18,12 +18,21 @@
    cd Ava-day
    ```
 
-1. Create and activate a new virtual environment
+1. Create a new virtual environment
 
    ```sh
    python3 -m venv env
-   source env/bin/activate
    ```
+1. Activate it
+
+   - On Linux:
+      -  ```sh
+         source env/bin/activate
+         ```
+   - On Windows:
+      -  ```sh
+         env\Scripts\activate
+         ```
 
 1. Install all necessary packages, including [this application](https://stackoverflow.com/a/50194143).
 
