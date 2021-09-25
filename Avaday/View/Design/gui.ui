@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Ava-day</string>
   </property>
   <widget class="QWidget" name="widget_drag_n_drop" native="true">
    <property name="geometry">

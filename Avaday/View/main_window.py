@@ -7,6 +7,7 @@ from Avaday.View.Widgets.drag_n_drop import DragNDropInput
 from Avaday.View.Widgets.generated_picture import GeneratedPicture
 from Avaday.View.draw_walks import ImageUpdater
 import shutil
+from pathlib import Path
 
 class Custom(QWidget):
     def __init__(self, ui: Ui_Dialog):
@@ -26,7 +27,8 @@ class Custom(QWidget):
         ui.button_save_as.clicked.connect(self.save_as)
 
     def save_as(self, ev):
-        file_name, _ = QFileDialog.getSaveFileName(parent=self, caption='Open File', directory='./',
+        name = Path(self.upd.path_to_generated_image).stem
+        file_name, _ = QFileDialog.getSaveFileName(parent=self, caption='Save avatar', directory=f"./{name}.png",
             initialFilter="Image (*.png *.jpg *jpeg)")
         if file_name:
             shutil.copy2(src=self.upd.path_to_generated_image, dst = file_name)
