@@ -1,20 +1,13 @@
-resources/brains/000.csv
-resources/brains/001.csv
-resources/brains/002.csv
-resources/brains/003.csv
-resources/brains/004.csv
-resources/brains/005.csv
-resources/brains/006.csv
-
-# Byte-compiled / optimized / DLL files
+; default ignored
+;  Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *.pyc
 
-# C extensions
+;  C extensions
 *.so
 
-# Distribution / packaging
+;  Distribution / packaging
 .Python
 env/
 build/
@@ -32,17 +25,17 @@ var/
 .installed.cfg
 *.egg
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+; PyInstaller
+; Usually these files are written by a python script from a template
+; before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
 
-# Installer logs
+;  Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
 
-# Unit test / coverage reports
+;  Unit test / coverage reports
 htmlcov/
 .tox/
 .coverage
@@ -52,21 +45,21 @@ nosetests.xml
 coverage.xml
 *,cover
 
-# Translations
+;  Translations
 *.mo
 *.pot
 
-# Django stuff:
+;  Django stuff:
 *.log
 
-# Sphinx documentation
+;  Sphinx documentation
 docs/_build/
 
-# PyBuilder
+;  PyBuilder
 target/
 Avaday/View/__pycache__/app.cpython-37.pyc
 Avaday/View/__pycache__/app.cpython-37.pyc
 Avaday/View/__pycache__/app.cpython-37.pyc
+
+; resources
 Avaday/resources/
-Avaday/resources/output_images/deadpool.png
-Avaday/resources/output_images/deadpool.png
