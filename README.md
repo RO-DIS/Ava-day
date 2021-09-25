@@ -32,7 +32,7 @@
 1. Open a terminal in some folder
    - Linux: `Ctrl+Alt+T` 
    - Windows: `Win+R` -> Type `cmd` -> Press `Enter`
-   - MacOs: `Cmd+Space` -> Type `terminal` -> Press `Enter`
+   - MacOS: `Cmd+Space` -> Type `terminal` -> Press `Enter`
 
 1. Clone the project
 
@@ -53,7 +53,7 @@
    ```
 1. Activate it
 
-   - On Linux:
+   - On Linux/MacOS:
       ```sh
       source env/bin/activate
       ```
