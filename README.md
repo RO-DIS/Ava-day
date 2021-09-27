@@ -4,29 +4,34 @@
 
 ### (day -> дай == give)
 
+
+## Interface
+
+<img src="./README/interface.preview.png" style="height: 300px; width: auto;"/>
+
 ## Sample outputs
 
    <details><summary><b><font color="#fa8e47">Spoiler</font></b></summary>
    <div id="column">
       <div id="row">
-         <img src="./README/m.png" alt="polotentse" style="height: 200px; width: 200px;"/>
-         <img src="./README/m_c.png" alt="polotentse" style="height: 200px; width: 200px;"/>
+         <img src="./README/m.png" style="height: 200px; width: auto;"/>
+         <img src="./README/m_c.png" style="height: 200px; width: auto;"/>
       </div>
       <div id="row">
-         <img src="./README/tiger.png" alt="polotentse" style="height: 200px; width:200px;"/>
-         <img src="./README/tiger_c.png" alt="polotentse" style="height: 200px; width:200px;"/>
+         <img src="./README/tiger.png" style="height: 200px; width: auto;"/>
+         <img src="./README/tiger_c.png" style="height: 200px; width: auto;"/>
       </div>
       <div id="row">
-         <img src="./README/bird.png" alt="polotentse" style="height: 200px; width:200px;"/>
-         <img src="./README/bird_c.png" alt="polotentse" style="height: 200px; width:200px;"/>
+         <img src="./README/bird.png" style="height: 200px; width: auto;"/>
+         <img src="./README/bird_c.png" style="height: 200px; width: auto;"/>
       </div>
       <div id="row">
-         <img src="./README/hockey.png" alt="polotentse" style="height: 200px; width:200px;"/>
-         <img src="./README/hockey_c.png" alt="polotentse" style="height: 200px; width:200px;"/>
+         <img src="./README/hockey.png" style="height: 200px; width: auto;"/>
+         <img src="./README/hockey_c.png" style="height: 200px; width: auto;"/>
       </div>
    </div>
    </details>
-   
+
 ## Installation
 
 1. Open a terminal in some folder
