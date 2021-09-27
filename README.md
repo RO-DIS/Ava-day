@@ -1,8 +1,8 @@
-# Avaday
+# Ava-day
 
 ## Application for avatar generation
 
-### (day -> дай == give)
+   (day -> дай == give)
 
 
 ## Interface
