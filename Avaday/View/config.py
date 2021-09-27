@@ -18,12 +18,6 @@ BACKGROUND_COLOR = 'k'
 WINDOW_HEIGHT = 700
 WINDOW_WIDTH = 700
 
-from Avaday.config import ROOT_DIR, IMAGE_NAME
-
-# path to image for map
-PATH_TO_IMAGE = f"{ROOT_DIR}/resources/images/{IMAGE_NAME}.png"
-PATH_TO_SAVED_IMAGE = f"{ROOT_DIR}/resources/output_images/{IMAGE_NAME}.png"
-
 OUT_IMAGE_SIDE_IN_PIXELS = 670
 
 # seed for random

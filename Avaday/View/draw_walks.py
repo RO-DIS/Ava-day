@@ -77,6 +77,7 @@ class ImageUpdater(QWidget):
 
         LineDrawer(self.view_space, path)
 
+        Path("{ROOT_DIR}/resources/output_images/").mkdir(parents=True, exist_ok=True)
         picture_name = Path(path).stem
         self.path_to_generated_image = f"{ROOT_DIR}/resources/output_images/{picture_name}.png"
 
