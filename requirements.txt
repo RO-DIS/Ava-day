@@ -1,4 +1,3 @@
-# -e git+https://github.com/RO-DIS/Ava-day@96b2b0be064587b28902cfaf3586d434c1a7253f#egg=Avaday
 numpy==1.21.2
 Pillow==8.3.2
 PyOpenGL==3.1.5
