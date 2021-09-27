@@ -45,7 +45,7 @@
    git clone https://github.com/RO-DIS/Ava-day
    ```
 
-1. Open terminal in the project root folder
+1. Navigate to project root folder
 
    ```sh
    cd Ava-day
@@ -75,7 +75,7 @@
 
 ## Running
 
-1. Continue in the same terminal. Run the application
+1. Run the application
 
     ```sh
     python main.py
