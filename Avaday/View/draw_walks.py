@@ -31,23 +31,38 @@ class LineDrawer():
         hashed = r ** 0.2 + g ** 0.5 + b ** 0.6
         height_max = np.amax(hashed)
         return hashed / height_max * BOARD_HEIGHT
-
-    def draw_walk(self, xs, ys):
-        zs = self.zs[xs * BOARD_SIZE + ys]
-        points = np.array([xs, ys, zs]).T
-        color = self.colors[xs * BOARD_SIZE + ys]
-        
-        line = gl.GLLinePlotItem()
-        line.setGLOptions("translucent")
-        line.setData(pos=points, color=color, width=LINE_WIDTH)
-
-        self.widget.addItem(line)
-
+    
     def draw_walks(self):
         f = open(f"{ROOT_DIR}/resources/paths/path.csv", "r")
+        
+        X = np.zeros(1)
+        Y = np.zeros(1)
+        alpha = np.zeros(1)
+    
         for _ in range(NUMBER_OF_PATHS):
             xs, ys = np.loadtxt(fname=f, delimiter=",", max_rows=2).astype(int)
-            self.draw_walk(xs, ys)
+            X = np.concatenate([X,xs,xs[-1:]])
+            Y = np.concatenate([Y,ys,ys[-1:]])
+            alpha = np.concatenate([alpha, np.zeros(1), np.full((len(xs)-1), fill_value=1), np.zeros(1)])
+        
+        alpha = np.zeros(len(X))
+        alpha[100:1000] = np.full((900),1)
+        self.draw_walk(X.astype(int), Y.astype(int), alpha.astype(int))
+
+    def draw_walk(self, xs, ys, alpha):
+        alpha = np.array([alpha]).T
+        zs = self.zs[xs * BOARD_SIZE + ys]
+        points = np.array([xs, ys, zs]).T
+
+        color = self.colors[xs * BOARD_SIZE + ys]
+        color = np.hstack((color, alpha))
+
+        line = gl.GLLinePlotItem()
+        line.setGLOptions("translucent")
+
+        line.setData(pos=points, color=color, width=LINE_WIDTH, mode='line_strip')
+
+        self.widget.addItem(line)
 
 class ScreenSaver():
     def __init__(self, widget, path):
@@ -88,3 +103,4 @@ class ImageUpdater(QWidget):
         """save new picture and emit"""
         ScreenSaver(self.view_space, self.path_to_generated_image)
         self.on_generated_picture.emit(self.path_to_generated_image)
+

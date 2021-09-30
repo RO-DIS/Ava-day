@@ -8,6 +8,7 @@ from Avaday.View.Widgets.generated_picture import GeneratedPicture
 from Avaday.View.draw_walks import ImageUpdater
 import shutil
 from pathlib import Path
+from Avaday.config import ROOT_DIR
 
 class Custom(QWidget):
     def __init__(self, ui: Ui_Dialog):
@@ -18,6 +19,8 @@ class Custom(QWidget):
         ui.widget_drag_n_drop.layout().addWidget(self.dnd)
 
         self.upd = ImageUpdater(self.dnd)
+
+        self.dnd.set_image(f"{ROOT_DIR}/resources/user_images/parrot.png")
 
         # add generated picture widget to dialog
         self.pic = GeneratedPicture(self.upd)

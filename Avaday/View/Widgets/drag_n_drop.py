@@ -5,7 +5,7 @@ from PyQt6 import QtGui
 from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout
 from PyQt6.QtCore import Qt, pyqtSignal
 from PyQt6.QtGui import QDragEnterEvent, QDragMoveEvent, QDropEvent, QPixmap
-
+from Avaday.config import ROOT_DIR
 
 class ImageLabel(QLabel):
     def __init__(self):
