@@ -20,7 +20,8 @@ class Custom(QWidget):
 
         self.upd = ImageUpdater(self.dnd)
 
-        self.dnd.set_image(f"{ROOT_DIR}/resources/user_images/parrot.png")
+        # fast testing
+        # self.dnd.set_image(f"{ROOT_DIR}/resources/user_images/parrot.png")
 
         # add generated picture widget to dialog
         self.pic = GeneratedPicture(self.upd)

@@ -35,26 +35,36 @@ class LineDrawer():
     def draw_walks(self):
         f = open(f"{ROOT_DIR}/resources/paths/path.csv", "r")
         
-        X = np.zeros(1)
-        Y = np.zeros(1)
-        alpha = np.zeros(1)
+        X = np.array([])
+        Y = np.array([])
+        alpha = np.array([])
     
         for _ in range(NUMBER_OF_PATHS):
             xs, ys = np.loadtxt(fname=f, delimiter=",", max_rows=2).astype(int)
+            xs = np.repeat(xs,2)
+            ys = np.repeat(ys,2)
             X = np.concatenate([X,xs,xs[-1:]])
             Y = np.concatenate([Y,ys,ys[-1:]])
-            alpha = np.concatenate([alpha, np.zeros(1), np.full((len(xs)-1), fill_value=1), np.zeros(1)])
-        
-        alpha = np.zeros(len(X))
-        alpha[100:1000] = np.full((900),1)
+            alpha = np.concatenate([alpha,np.array([0]),np.full((len(xs)-2), 1), np.array([0,0])])
+    
         self.draw_walk(X.astype(int), Y.astype(int), alpha.astype(int))
 
+# 2333112
+# 1100011
+# 111-111
+# 011223
+
     def draw_walk(self, xs, ys, alpha):
-        alpha = np.array([alpha]).T
         zs = self.zs[xs * BOARD_SIZE + ys]
+        for i in range(1,len(alpha)-1):
+            if alpha[i-1]==0 and alpha[i+1] == 0:
+                zs[i] = -1000
+                
         points = np.array([xs, ys, zs]).T
 
+        alpha = np.array([alpha]).T
         color = self.colors[xs * BOARD_SIZE + ys]
+        color = np.concatenate([np.array([[0,0,0]]),color[:-1]])
         color = np.hstack((color, alpha))
 
         line = gl.GLLinePlotItem()
@@ -63,6 +73,7 @@ class LineDrawer():
         line.setData(pos=points, color=color, width=LINE_WIDTH, mode='line_strip')
 
         self.widget.addItem(line)
+
 
 class ScreenSaver():
     def __init__(self, widget, path):
