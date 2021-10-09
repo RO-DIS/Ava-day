@@ -7,7 +7,7 @@
 
 ## Interface
 
-<img src="./README/interface.preview.png" style="height: 300px; width: auto;"/>
+<img src="./README/interface.preview.png" style="height: auto; width: auto;"/>
 
 ## Sample outputs
 
