@@ -5,11 +5,12 @@ import pyqtgraph.opengl as gl
 import pyqtgraph as pg
 from Avaday.config import ROOT_DIR
 from Avaday.View.config import \
-    LINE_WIDTH, NUMBER_OF_PATHS, BOARD_HEIGHT, \
+    LINE_WIDTH, BOARD_HEIGHT, \
         OUT_IMAGE_SIDE_IN_PIXELS, BOARD_SIZE, np, \
         NUMBER_OF_PATHS
 from Avaday.View.get_image import get_scaled_down_image
 from Avaday.View.Widgets.view_space import ViewSpace
+from pathlib import Path
 
 class LineDrawer():
     def __init__(self, widget, path):
@@ -74,44 +75,47 @@ class LineDrawer():
 
         self.widget.addItem(line)
 
-
+# Class responsible for saving the generated image to a filesystem
 class ScreenSaver():
     def __init__(self, widget, path):
         d = widget.renderToArray((OUT_IMAGE_SIDE_IN_PIXELS, OUT_IMAGE_SIDE_IN_PIXELS))
         pg.makeQImage(d).save(path)
 
-from pathlib import Path
-
+# Class, responsible for translating image from the interactive window to the main one.
 class ImageUpdater(QWidget):
-    """re-sends signals from drag'n'drop and big view to small preview, manages new views and pictures"""
-    # if want to use signals, inherit from QWidget or similar
     def __init__(self, dnd: DragNDropInput):
         super().__init__()
         dnd.image_set.connect(self.on_new_picture)
+        self.view_space = None
+        self.on_generated_picture = pyqtSignal(str)
 
-    view_space = None
-
+    # Function, responsible for the behaviour of views after user dropped an image.
     @pyqtSlot(str)
     def on_new_picture(self, path):
-        """close old big view, set new to show a new picture, connect it to pic saver, update path"""
-        if self.view_space:
-            self.view_space.close()
-            
+        self._restartInteractiveImageView()
+        LineDrawer(self.view_space, path)
+        self._setGeneratedImagePath(path)
+        self.update_generated_picture()
+
+    # Just updating of the small image viewer when user stops interacting with the big view.
+    def update_generated_picture(self):
+        ScreenSaver(self.view_space, self.path_to_generated_image)
+        self.on_generated_picture.emit(self.path_to_generated_image)
+
+    def _restartInteractiveImageView(self):
+        self._openInteractiveImageView()
+        self._closeInteractiveImageView()
+
+    def _openInteractiveImageView(self):
         self.view_space = ViewSpace()
         self.view_space.mouse_moved.connect(self.update_generated_picture)
         self.view_space.wheel_scrolled.connect(self.update_generated_picture)
 
-        LineDrawer(self.view_space, path)
+    def _closeInteractiveImageView(self):
+        if self.view_space:
+            self.view_space.close()
 
+    def _setGeneratedImagePath(self, input_path):
         Path(f"{ROOT_DIR}/resources/output_images/").mkdir(parents=True, exist_ok=True)
-        picture_name = Path(path).stem
+        picture_name = Path(input_path).stem
         self.path_to_generated_image = f"{ROOT_DIR}/resources/output_images/{picture_name}.png"
-
-        self.update_generated_picture()
-
-    on_generated_picture = pyqtSignal(str)
-    def update_generated_picture(self):
-        """save new picture and emit"""
-        ScreenSaver(self.view_space, self.path_to_generated_image)
-        self.on_generated_picture.emit(self.path_to_generated_image)
-
