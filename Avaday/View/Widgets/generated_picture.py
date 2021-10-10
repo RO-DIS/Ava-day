@@ -4,6 +4,8 @@ from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QPixmap
 
+# TODO
+
 class ImageLabel(QLabel):
     def __init__(self):
         super().__init__()

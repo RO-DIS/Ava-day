@@ -12,6 +12,8 @@ from Avaday.View.get_image import get_scaled_down_image
 from Avaday.View.Widgets.view_space import ViewSpace
 import numpy as np
 
+# TODO split into files
+
 class LineDrawer():
     def __init__(self, widget, path):
         self.widget = widget

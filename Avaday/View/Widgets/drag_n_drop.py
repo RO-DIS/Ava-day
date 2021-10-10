@@ -1,4 +1,4 @@
-from Avaday.View.get_image import get_cropped_rgb_image_path
+from Avaday.View.get_image import get_image_path
 import sys, os
 from PIL.Image import Image
 from PyQt6 import QtGui
@@ -6,7 +6,6 @@ from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout
 from PyQt6.QtCore import Qt, pyqtSignal
 from PyQt6.QtGui import QDragEnterEvent, QDragMoveEvent, QDropEvent, QPixmap
 from Avaday.config import ROOT_DIR
-
 
 class ImageLabel(QLabel):
     """ show dropped picture
@@ -82,7 +81,7 @@ class DragNDropInput(QWidget):
         if event.mimeData().hasImage:
             event.setDropAction(Qt.DropAction.CopyAction)
             file_path = event.mimeData().urls()[0].toLocalFile()
-            new_path = get_cropped_rgb_image_path(file_path)
+            new_path = get_image_path(file_path)
             self.set_image(new_path)
             event.accept()
         else:
