@@ -1,4 +1,4 @@
-from Avaday.View.get_image import get_transformed_image_path
+from Avaday.View.Handlers.get_image import get_transformed_image_path
 import sys
 import os
 from PIL.Image import Image
@@ -6,8 +6,6 @@ from PyQt6 import QtGui
 from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout
 from PyQt6.QtCore import Qt, pyqtSignal
 from PyQt6.QtGui import QDragEnterEvent, QDragMoveEvent, QDropEvent, QPixmap
-from Avaday.config import ROOT_DIR
-
 
 class InputImage(QLabel):
     """ show dropped picture
