@@ -5,7 +5,7 @@ from PyQt6 import QtCore
 from PyQt6.QtWidgets import QApplication, QDialog, QFileDialog, QVBoxLayout, QWidget
 from Avaday.View.Widgets.drag_n_drop import DragNDropInput
 from Avaday.View.Widgets.generated_picture import GeneratedPicture
-from Avaday.View.draw_walks import ImageUpdater
+from Avaday.View.WidgetHandlers.draw_walks import ImageUpdater
 import shutil
 from pathlib import Path
 from Avaday.config import ROOT_DIR
@@ -20,7 +20,7 @@ class Custom(QWidget):
         ui.widget_drag_n_drop.layout().addWidget(self.dnd)
 
         self.upd = ImageUpdater(self.dnd)
-        
+
         # add generated picture widget to dialog
         self.pic = GeneratedPicture(self.upd)
 

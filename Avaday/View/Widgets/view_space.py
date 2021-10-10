@@ -27,7 +27,7 @@ class ViewSpace(gl.GLViewWidget):
         if azimuth is not None:
             self.opts['azimuth'] = azimuth
         self.update()
-
+    
     mouse_moved = pyqtSignal()
     def mouseReleaseEvent(self, ev):
         self.mouse_moved.emit()
