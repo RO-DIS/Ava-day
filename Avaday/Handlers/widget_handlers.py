@@ -101,13 +101,13 @@ class ImageUpdater(QWidget):
 
         Path(f"{ROOT_DIR}/resources/output_images/").mkdir(parents=True, exist_ok=True)
 
-    def handle_view_space(self):
+    def __handle_view_space(self):
         if self.view_space:
             self.view_space.close()
 
         self.view_space = ViewSpace()
-        self.view_space.mouse_moved.connect(self.update_generated_picture)
-        self.view_space.wheel_scrolled.connect(self.update_generated_picture)
+        self.view_space.mouse_moved.connect(self.__update_generated_picture)
+        self.view_space.wheel_scrolled.connect(self.__update_generated_picture)
 
     @pyqtSlot(str)
     def on_new_picture(self, path):
@@ -118,18 +118,18 @@ class ImageUpdater(QWidget):
 
         up
         """
-        self.handle_view_space()
+        self.__handle_view_space()
 
         LineDrawer(self.view_space, path)
 
         picture_name = Path(path).stem
         self.path_to_generated_image = f"{ROOT_DIR}/resources/output_images/{picture_name}.png"
 
-        self.update_generated_picture()
+        self.__update_generated_picture()
 
     on_generated_picture = pyqtSignal(str)
 
-    def update_generated_picture(self):
+    def __update_generated_picture(self):
         """
         save new image and emit signal with path to this image
         """
