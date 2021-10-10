@@ -19,14 +19,11 @@ BACKGROUND_COLOR = 'k'
 WINDOW_HEIGHT = 700
 WINDOW_WIDTH = 700
 
+# side of saved picture
 OUT_IMAGE_SIDE_IN_PIXELS = 670
 
 # seed for random
 RANDOM_SEED = 1828283
-
-import numpy as np
-np.seterr(all='raise')
-np.random.seed(RANDOM_SEED)
 
 # Length of board side
 BOARD_SIZE = 100
