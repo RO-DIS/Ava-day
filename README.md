@@ -96,3 +96,7 @@
 ## Notes
 
 1. As the default background for `.png` photos is black here, don't drop images like [this one](https://upload.wikimedia.org/wikipedia/ru/thumb/7/78/Trollface.svg/1200px-Trollface.svg.png)
+
+## Documentation
+
+* All the documentation, connected to the project can be found in the [Documentation folder](/Documentation)
