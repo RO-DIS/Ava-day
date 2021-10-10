@@ -8,12 +8,12 @@ from Avaday.config import ROOT_DIR
 from Avaday.config import LINE_WIDTH, OUT_IMAGE_SIDE_IN_PIXELS
 from Avaday.Widgets.view_space import ViewSpace
 from Avaday.Handlers.data_handlers import DataFromImageExtractor, LineComposer
-# TODO split into files
-
 
 class LineDrawer():
     """
     take widget, path to image
+
+    use image to get 3D-line
 
     add 3D-line to widget
 
@@ -104,25 +104,20 @@ class ImageUpdater(QWidget):
 
     def handle_view_space(self):
         if self.view_space:
-            self.view_space.reset()
-        else:
-            self.view_space = ViewSpace()
-            self.view_space.mouse_moved.connect(self.update_generated_picture)
-            self.view_space.wheel_scrolled.connect(
-                self.update_generated_picture)
+            self.view_space.close()
+
+        self.view_space = ViewSpace()
+        self.view_space.mouse_moved.connect(self.update_generated_picture)
+        self.view_space.wheel_scrolled.connect(self.update_generated_picture)
 
     @pyqtSlot(str)
     def on_new_picture(self, path):
         """
-        on signal
+        call function to hangle view space
 
-        close old big view
+        update path for image saving
 
-        set new to show a new picture
-
-        connect it to image saver
-
-        update path
+        up
         """
         self.handle_view_space()
 
