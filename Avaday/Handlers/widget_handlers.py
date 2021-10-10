@@ -96,21 +96,21 @@ class ImageUpdater(QWidget):
     def __init__(self, dnd: DragNDropInput):
         super().__init__()
 
-        self.view_space = None
-        dnd.image_set.connect(self.on_new_picture)
+        self.__view_space = None
+        dnd.image_set.connect(self.__on_new_picture)
 
         Path(f"{ROOT_DIR}/resources/output_images/").mkdir(parents=True, exist_ok=True)
 
     def __handle_view_space(self):
-        if self.view_space:
-            self.view_space.close()
+        if self.__view_space:
+            self.__view_space.close()
 
-        self.view_space = ViewSpace()
-        self.view_space.mouse_moved.connect(self.__update_generated_picture)
-        self.view_space.wheel_scrolled.connect(self.__update_generated_picture)
+        self.__view_space = ViewSpace()
+        self.__view_space.mouse_moved.connect(self.__update_generated_picture)
+        self.__view_space.wheel_scrolled.connect(self.__update_generated_picture)
 
     @pyqtSlot(str)
-    def on_new_picture(self, path):
+    def __on_new_picture(self, path):
         """
         call function to hangle view space
 
@@ -120,7 +120,7 @@ class ImageUpdater(QWidget):
         """
         self.__handle_view_space()
 
-        LineDrawer(self.view_space, path)
+        LineDrawer(self.__view_space, path)
 
         picture_name = Path(path).stem
         self.path_to_generated_image = f"{ROOT_DIR}/resources/output_images/{picture_name}.png"
@@ -133,5 +133,5 @@ class ImageUpdater(QWidget):
         """
         save new image and emit signal with path to this image
         """
-        ScreenSaver(self.view_space, self.path_to_generated_image)
+        ScreenSaver(self.__view_space, self.path_to_generated_image)
         self.on_generated_picture.emit(self.path_to_generated_image)
