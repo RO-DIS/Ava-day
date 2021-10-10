@@ -14,9 +14,11 @@ For easier description of our architecture, we made two diagrams:
 ## Design
 * This **Sequence Diagram** shows how our app is going to interact with the user and with itself internally.  
 ![Sequence Diagram](/Documentation/sequence.jpg)
-* About the designing of the classes itself (also called **Design Patterns**), we desided not to invent anything new, and just build our code around default **PyQt** code style. Interaction between any two classes is made either by **PyQt** itself, or by **signals**, taken from the same **PyQt** library.
+* About the designing of the classes itself (also called **Design Patterns**), we decided not to invent anything new, and just build our code around default **PyQt** code style. Interaction between any two classes is made either by **PyQt** itself, or by **signals**, taken from the same **PyQt** library.
 
 ## SOLID
-* We tried our best to follow all the SOLID principles in our code. For better explanation of why we structured our code the way we did it, read documentation, which is right in the code. There we fully explained why each of our classes fits perfectly all the SOLID principles.
+* We tried our best to follow all the SOLID principles in our code. For better explanation of why we structured our code the way we did it, read documentation, which is right in the code. There we explained why each of our classes fits the SOLID principles.
+
+## Linter results
 * To prove, that our code is well-written, we checked our code using external service **SonarCloud**. It's report:  
 ![SonarCloud Report](/Documentation/sonarcloud_report.png)
