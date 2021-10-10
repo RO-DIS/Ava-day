@@ -7,7 +7,22 @@ from PyQt6.QtCore import Qt, pyqtSignal
 from PyQt6.QtGui import QDragEnterEvent, QDragMoveEvent, QDropEvent, QPixmap
 from Avaday.config import ROOT_DIR
 
+
 class ImageLabel(QLabel):
+    """ show dropped picture
+
+        when no picture set, show a hint text
+
+        S - only shows hint or picture. Changes only on a new picture
+        
+        O - supports only QPixMap by interface of QLabel
+        
+        L - preserves interface of QLabel and can be used instead
+        
+        I - has a single interface inherited from QLabel
+        
+        D - does not use lower-level modules
+    """
     def __init__(self):
         super().__init__()
 
@@ -21,23 +36,35 @@ class ImageLabel(QLabel):
 
         self.setScaledContents(True)
 
-    def setPixmap(self, image):
-        super().setPixmap(image)
-
 class DragNDropInput(QWidget):
+    """ widget that handles images drag'n'dropped into it
+        
+        signal when image is set
+
+        S - changes only on picture drop
+        
+        O - can be extended and adjusted via built-in functions without need for modification
+        
+        L - Preserves interface of QWidget
+        
+        I - has a single interface inherited from QLabel
+        
+        D - does not use lower-level modules    
+    """
     def __init__(self):
         super().__init__()
+        # set widget properties
         self.resize(400, 400)
         self.setAcceptDrops(True)
 
         mainLayout = QVBoxLayout()
 
+        # add image viewer
         self.photoViewer = ImageLabel()
         mainLayout.addWidget(self.photoViewer)
 
         self.setLayout(mainLayout)
         self.show()
-
 
     def dragEnterEvent(self, event: QDragEnterEvent):
         if event.mimeData().hasImage:
