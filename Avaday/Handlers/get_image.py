@@ -1,7 +1,7 @@
 from pathlib import Path
 from PIL import Image
 
-from Avaday.View.config import IMAGE_SIDE, BOARD_SIZE
+from Avaday.config import IMAGE_SIDE, BOARD_SIZE
 
 from Avaday.config import ROOT_DIR
 

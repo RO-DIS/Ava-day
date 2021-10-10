@@ -1,4 +1,4 @@
-from Avaday.View.Handlers.get_image import get_transformed_image_path
+from Avaday.Handlers.get_image import get_transformed_image_path
 import sys
 import os
 from PIL.Image import Image

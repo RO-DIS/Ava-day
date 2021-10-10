@@ -2,7 +2,7 @@ from PyQt6.QtCore import pyqtSignal
 import PyQt6.QtCore
 import pyqtgraph.opengl as gl
 
-from Avaday.View.config import BOARD_SIZE, VIEW_HEIGHT, VIEW_ELEVATION, \
+from Avaday.config import BOARD_SIZE, VIEW_HEIGHT, VIEW_ELEVATION, \
     VIEW_AZIMUTH, BACKGROUND_COLOR, WINDOW_WIDTH, WINDOW_HEIGHT
 
 # TODO

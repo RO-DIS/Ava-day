@@ -1,5 +1,5 @@
 from Avaday.config import ROOT_DIR
-from Avaday.View.config import NUMBER_OF_PATHS, BOARD_HEIGHT, BOARD_SIZE, IMAGE_SIDE, NUMBER_OF_PATHS
+from Avaday.config import NUMBER_OF_PATHS, BOARD_HEIGHT, BOARD_SIZE, IMAGE_SIDE, NUMBER_OF_PATHS
 import numpy as np
 from PIL import Image
 

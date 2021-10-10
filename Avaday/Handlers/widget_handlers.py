@@ -1,13 +1,13 @@
 from pathlib import Path
 from PyQt6.QtWidgets import QWidget
-from Avaday.View.Widgets.drag_n_drop import DragNDropInput
+from Avaday.Widgets.drag_n_drop import DragNDropInput
 from PyQt6.QtCore import pyqtSlot, pyqtSignal
 import pyqtgraph.opengl as gl
 import pyqtgraph as pg
 from Avaday.config import ROOT_DIR
-from Avaday.View.config import LINE_WIDTH, OUT_IMAGE_SIDE_IN_PIXELS
-from Avaday.View.Widgets.view_space import ViewSpace
-from Avaday.View.Handlers.data_handlers import DataFromImageExtractor, LineComposer
+from Avaday.config import LINE_WIDTH, OUT_IMAGE_SIDE_IN_PIXELS
+from Avaday.Widgets.view_space import ViewSpace
+from Avaday.Handlers.data_handlers import DataFromImageExtractor, LineComposer
 # TODO split into files
 
 
