@@ -6,10 +6,11 @@ import pyqtgraph as pg
 from Avaday.config import ROOT_DIR
 from Avaday.View.config import \
     LINE_WIDTH, NUMBER_OF_PATHS, BOARD_HEIGHT, \
-        OUT_IMAGE_SIDE_IN_PIXELS, BOARD_SIZE, np, \
+        OUT_IMAGE_SIDE_IN_PIXELS, BOARD_SIZE, \
         NUMBER_OF_PATHS
 from Avaday.View.get_image import get_scaled_down_image
 from Avaday.View.Widgets.view_space import ViewSpace
+import numpy as np
 
 class LineDrawer():
     def __init__(self, widget, path):

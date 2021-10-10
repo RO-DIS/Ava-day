@@ -1,7 +1,9 @@
 from pathlib import Path
 from PIL import Image
 
-from Avaday.View.config import IMAGE_SIDE, BOARD_SIZE, np
+from Avaday.View.config import IMAGE_SIDE, BOARD_SIZE
+
+import numpy as np
 
 from Avaday.config import ROOT_DIR
 
