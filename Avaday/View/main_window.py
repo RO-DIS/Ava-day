@@ -10,6 +10,7 @@ import shutil
 from pathlib import Path
 from Avaday.config import ROOT_DIR
 
+
 class Custom(QWidget):
     def __init__(self, ui: Ui_Dialog):
         super().__init__()
@@ -19,12 +20,13 @@ class Custom(QWidget):
         ui.widget_drag_n_drop.layout().addWidget(self.dnd)
 
         self.upd = ImageUpdater(self.dnd)
-
-        # fast testing
-        # self.dnd.set_image(f"{ROOT_DIR}/resources/user_images/parrot.png")
-
+        
         # add generated picture widget to dialog
         self.pic = GeneratedPicture(self.upd)
+
+        # for fast testing
+        self.dnd.set_image(f"{ROOT_DIR}/resources/user_images/parrot.png")
+
         ui.widget_generated_output.setLayout(QVBoxLayout())
         ui.widget_generated_output.layout().addWidget(self.pic)
 
