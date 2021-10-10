@@ -18,3 +18,5 @@ For easier description of our architecture, we made two diagrams:
 
 ## SOLID
 * We tried our best to follow all the SOLID principles in our code. For better explanation of why we structured our code the way we did it, read documentation, which is right in the code. There we fully explained why each of our classes fits perfectly all the SOLID principles.
+* To prove, that our code is well-written, we checked our code using external service **SonarCloud**. It's report:  
+![SonarCloud Report](/Documentation/sonarcloud_report.png)
