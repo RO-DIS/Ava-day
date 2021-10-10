@@ -1,4 +1,5 @@
-from Avaday.View.main_window import run
+from Avaday.Widgets.main_window import run, test_run
 
 if __name__ == "__main__":
-    run()
+    # run()
+    test_run()

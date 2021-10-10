@@ -2,11 +2,25 @@ from PyQt6.QtCore import pyqtSignal
 import PyQt6.QtCore
 import pyqtgraph.opengl as gl
 
-from Avaday.View.config import BOARD_SIZE, VIEW_HEIGHT, VIEW_ELEVATION, \
+from Avaday.config import BOARD_SIZE, VIEW_HEIGHT, VIEW_ELEVATION, \
     VIEW_AZIMUTH, BACKGROUND_COLOR, WINDOW_WIDTH, WINDOW_HEIGHT
 
+# TODO
 
 class ViewSpace(gl.GLViewWidget):
+    """ 
+    widget that displays 3d line
+
+    S - only handles 3D line view and reacts to gestures. Mainly changes only on picture drop
+
+    O - can be extended and adjusted via built-in functions without need for modification
+
+    L - Preserves interface of gl.GLViewWidget
+
+    I - has a single interface inherited from QWidget
+
+    D - does not use lower-level modules
+    """
     def __init__(self):
         super().__init__()
         self.pan(BOARD_SIZE//2,BOARD_SIZE//2,0)
