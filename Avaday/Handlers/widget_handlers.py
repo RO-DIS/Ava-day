@@ -79,7 +79,6 @@ class ScreenSaver():
 
 class ImageUpdater(QWidget):
     """
-    TODO
     re-send signals from drag'n'drop widget and space view widget to output widget
 
     S - only handles signals from widgets. Changes only on creation
