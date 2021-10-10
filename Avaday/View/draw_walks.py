@@ -97,7 +97,12 @@ class ScreenSaver():
 from pathlib import Path
 
 class ImageUpdater(QWidget):
-    """re-sends signals from drag'n'drop and big view to small preview, manages new views and pictures"""
+    """
+    re-send signals from drag'n'drop and big view to small preview
+    
+    manage new views and pictures
+    """
+
     # if want to use signals, inherit from QWidget or similar
     def __init__(self, dnd: DragNDropInput):
         super().__init__()
@@ -107,7 +112,15 @@ class ImageUpdater(QWidget):
 
     @pyqtSlot(str)
     def on_new_picture(self, path):
-        """close old big view, set new to show a new picture, connect it to pic saver, update path"""
+        """
+        close old big view
+        
+        set new to show a new picture
+        
+        connect it to pic saver
+        
+        update path
+        """
         if self.view_space:
             self.view_space.close()
             
