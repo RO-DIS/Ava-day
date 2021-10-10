@@ -9,30 +9,34 @@
 
 ## Interface
 
-<img src="./README/interface.preview.png" style="height: auto; width: auto;"/>
+<img src="./README/interface.png" style="height: auto; width: auto;"/>
 
 ## Sample outputs
 
    <details><summary><b><font color="#fa8e47">Spoiler</font></b></summary>
    <div id="column">
       <div id="row">
-         <img src="./README/m.png" style="height: 400px; width: auto;"/>
-         <img src="./README/m_c.png" style="height: 400px; width: auto;"/>
+         <img src="./README/m.png" style="height: 350px; width: auto;"/>
+         <img src="./README/m_c.png" style="height: 350px; width: auto;"/>
       </div>
       <div id="row">
-         <img src="./README/tiger.png" style="height: 400px; width: auto;"/>
-         <img src="./README/tiger_c.png" style="height: 400px; width: auto;"/>
+         <img src="./README/tiger.png" style="height: 350px; width: auto;"/>
+         <img src="./README/tiger_c.png" style="height: 350px; width: auto;"/>
       </div>
       <div id="row">
-         <img src="./README/bird.png" style="height: 400px; width: auto;"/>
-         <img src="./README/bird_c.png" style="height: 400px; width: auto;"/>
+         <img src="./README/bird.png" style="height: 350px; width: auto;"/>
+         <img src="./README/bird_c.png" style="height: 350px; width: auto;"/>
       </div>
       <div id="row">
-         <img src="./README/hockey.png" style="height: 400px; width: auto;"/>
-         <img src="./README/hockey_c.png" style="height: 400px; width: auto;"/>
+         <img src="./README/hockey.png" style="height: 350px; width: auto;"/>
+         <img src="./README/hockey_c.png" style="height: 350px; width: auto;"/>
       </div>
    </div>
    </details>
+
+## Documentation
+
+* All the documentation, connected to the project can be found in the [Documentation folder](/Documentation)
 
 ## Installation
 
@@ -98,7 +102,3 @@
 ## Notes
 
 1. As the default background for `.png` photos is black here, don't drop images like [this one](https://upload.wikimedia.org/wikipedia/ru/thumb/7/78/Trollface.svg/1200px-Trollface.svg.png)
-
-## Documentation
-
-* All the documentation, connected to the project can be found in the [Documentation folder](/Documentation)
