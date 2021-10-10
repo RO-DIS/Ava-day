@@ -80,10 +80,10 @@ class ImageSaveDialog(QWidget):
 def run():
     if (sys.flags.interactive != 1) or not hasattr(QtCore, "PYQT_VERSION"):
         app = QApplication([])
-        Dialog = QDialog()
+        dialog = QDialog()
         ui = Ui_Dialog()
-        ui.setupUi(Dialog)
-        Dialog.show()
+        ui.setupUi(dialog)
+        dialog.show()
 
         main = MainWidget(ui=ui)
 
@@ -92,10 +92,10 @@ def run():
 def test_run():
     if (sys.flags.interactive != 1) or not hasattr(QtCore, "PYQT_VERSION"):
         app = QApplication([])
-        Dialog = QDialog()
+        dialog = QDialog()
         ui = Ui_Dialog()
-        ui.setupUi(Dialog)
-        Dialog.show()
+        ui.setupUi(dialog)
+        dialog.show()
 
         main = MainWidget(ui=ui)
 

@@ -98,8 +98,7 @@ class DragNDropInput(QWidget):
         self.image_set.emit(file_path)
 
 
-if __name__ == "__main__":
-    if (sys.flags.interactive != 1):
-        app = QApplication(sys.argv)
-        demo = DragNDropInput()
-        app.exec()
+if __name__ == "__main__" and sys.flags.interactive != 1:
+    app = QApplication(sys.argv)
+    demo = DragNDropInput()
+    app.exec()

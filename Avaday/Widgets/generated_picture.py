@@ -67,8 +67,7 @@ class GeneratedOutput(QWidget):
         self.photoViewer.setPixmap(QPixmap(file_path))
 
 
-if __name__ == "__main__":
-    if (sys.flags.interactive != 1):
+if __name__ == "__main__" and sys.flags.interactive != 1:
         app = QApplication(sys.argv)
         demo = GeneratedOutput()
         app.exec()
