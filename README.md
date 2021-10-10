@@ -34,9 +34,12 @@
    </div>
    </details>
 
+## Demo Video
+* [Watch on YouTube](https://youtu.be/vjEz2ZzAJDE)
+
 ## Documentation
 
-* All the documentation, connected to the project can be found in the [Documentation folder](/Documentation)
+* All the documentation of the project is in the [Documentation folder](/Documentation)
 
 ## Installation
 
