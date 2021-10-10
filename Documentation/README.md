@@ -5,12 +5,13 @@ All information about requirements can be found in the following file: [link](ht
 All the used terminology can be found on the same [link](https://docs.google.com/document/d/1YJfG6R8hqVHXyAWbUEWD7GAZxAxY5GQK/edit#) at the end of the file.
 
 ## Architecture
-For easier description of our architecture, we made two diagrams:
+For easier description of our architecture, we made the following diagrams:
+* **UML Class Diagram**
+![UML Classes](/Documentation/class_diagram.png)
 * **Static View diagram**  
 ![Static View](/Documentation/static_view.png)
 * **Dynamic View diagram**  
 ![Dynamic View](/Documentation/dynamic_view.png)
-
 ## Design
 * This **Sequence Diagram** shows how our app is going to interact with the user and with itself internally.  
 ![Sequence Diagram](/Documentation/sequence.jpg)
