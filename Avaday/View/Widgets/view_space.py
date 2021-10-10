@@ -5,12 +5,10 @@ import pyqtgraph.opengl as gl
 from Avaday.View.config import BOARD_SIZE, VIEW_HEIGHT, VIEW_ELEVATION, \
     VIEW_AZIMUTH, BACKGROUND_COLOR, WINDOW_WIDTH, WINDOW_HEIGHT
 
-# The view, responsible for the window, opened for a user to setup the generated image.
+
 class ViewSpace(gl.GLViewWidget):
-    # Setting up our widget.
     def __init__(self):
         super().__init__()
-        self._setupPyQtSignals()
         self.pan(BOARD_SIZE//2,BOARD_SIZE//2,0)
         self.setCameraPosition(distance=VIEW_HEIGHT, elevation=VIEW_ELEVATION, azimuth=VIEW_AZIMUTH)
         self.setBackgroundColor(BACKGROUND_COLOR)
@@ -29,11 +27,11 @@ class ViewSpace(gl.GLViewWidget):
             self.opts['azimuth'] = azimuth
         self.update()
 
-    # Overwritten for our purposes event from opengl
+    mouse_moved = pyqtSignal()
     def mouseReleaseEvent(self, ev):
         self.mouse_moved.emit()
 
-    # Overwritten for our purposes event from opengl
+    wheel_scrolled = pyqtSignal()
     def wheelEvent(self, ev):
         delta = ev.angleDelta().x()
         if delta == 0:
@@ -44,7 +42,3 @@ class ViewSpace(gl.GLViewWidget):
             self.opts['distance'] *= 0.999**delta
         self.update()
         self.wheel_scrolled.emit()
-        
-    def _setupPyQtSignals(self):
-        self.mouse_moved = pyqtSignal()
-        self.wheel_scrolled = pyqtSignal()
