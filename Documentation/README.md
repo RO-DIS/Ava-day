@@ -23,3 +23,6 @@ For easier description of our architecture, we made two diagrams:
 ## Linter results
 * To prove, that our code is well-written, we checked our code using external service **SonarCloud**. It's report:  
 ![SonarCloud Report](/Documentation/sonarcloud_report.png)
+
+## Tests 
+* We used manual UI tests
