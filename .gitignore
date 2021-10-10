@@ -70,3 +70,5 @@ Avaday/View/__pycache__/app.cpython-37.pyc
 ; resources
 Avaday/resources/output_images
 Avaday/resources/user_images
+
+.vscode
