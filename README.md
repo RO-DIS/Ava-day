@@ -46,7 +46,7 @@
 1. Open a terminal in some folder
    - Linux: `Ctrl+Alt+T` 
    - Windows: `Win+R` -> Type `cmd` -> Press `Enter`
-   - MacOS: `Cmd+Space` -> Type `terminal` -> Press `Enter`
+   - MacOS (not all screen models supported): `Cmd+Space` -> Type `terminal` -> Press `Enter`
 
 1. Clone the project
 
