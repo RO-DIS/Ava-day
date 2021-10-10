@@ -1,4 +1,4 @@
-from Avaday.View.get_image import get_image_path
+from Avaday.View.get_image import get_transformed_image_path
 import sys, os
 from PIL.Image import Image
 from PyQt6 import QtGui
@@ -81,7 +81,7 @@ class DragNDropInput(QWidget):
         if event.mimeData().hasImage:
             event.setDropAction(Qt.DropAction.CopyAction)
             file_path = event.mimeData().urls()[0].toLocalFile()
-            new_path = get_image_path(file_path)
+            new_path = get_transformed_image_path(file_path)
             self.set_image(new_path)
             event.accept()
         else:

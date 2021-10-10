@@ -6,22 +6,33 @@ import pyqtgraph as pg
 from Avaday.config import ROOT_DIR
 from Avaday.View.config import \
     LINE_WIDTH, NUMBER_OF_PATHS, BOARD_HEIGHT, \
-        OUT_IMAGE_SIDE_IN_PIXELS, BOARD_SIZE, \
+        OUT_IMAGE_SIDE_IN_PIXELS, BOARD_SIZE, IMAGE_SIDE,\
         NUMBER_OF_PATHS
-from Avaday.View.get_image import get_scaled_down_image
 from Avaday.View.Widgets.view_space import ViewSpace
 import numpy as np
+from PIL import Image
 
 # TODO split into files
 
 class LineDrawer():
     def __init__(self, widget, path):
         self.widget = widget
-        image = get_scaled_down_image(path=path)
+        image = self.get_scaled_down_image(path=path)
         flat_image = self.get_flat_image(image)
         self.colors = self.get_normalized_colors(flat_image)
         self.zs = self.get_zs(flat_image)
         self.draw_walks()
+
+    def get_scaled_down_image(self, path):
+        img = Image.open(path)
+        img = np.asarray(img).astype(np.float32)
+
+        factor = IMAGE_SIDE // BOARD_SIZE
+        img = img[::factor][:, ::factor]
+        img = img[:BOARD_SIZE, :BOARD_SIZE]
+
+        return img
+
 
     def get_flat_image(self, image):
         return np.reshape(a=image, newshape=(image.shape[0] ** 2, 3))

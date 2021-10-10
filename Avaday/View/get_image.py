@@ -9,6 +9,9 @@ from Avaday.config import ROOT_DIR
 
 # TODO
 
+# class ImageAdapter():
+#     def __init__(self) -> None:
+        
 def crop_center_image(img):
     """crop image to get only the central square with given image side"""
     w, h = img.size
@@ -51,18 +54,7 @@ def save_image(path, img):
     return path_to_png
 
 
-def get_image_path(path):
+def get_transformed_image_path(path):
     img = process_image(Image.open(path))
     new_path = save_image(path, img)
     return new_path
-
-
-def get_scaled_down_image(path):
-    img = Image.open(path)
-    img = np.asarray(img).astype(np.float32)
-
-    factor = IMAGE_SIDE // BOARD_SIZE
-    img = img[::factor][:, ::factor]
-    img = img[:BOARD_SIZE, :BOARD_SIZE]
-
-    return img
