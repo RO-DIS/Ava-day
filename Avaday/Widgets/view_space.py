@@ -5,8 +5,6 @@ import pyqtgraph.opengl as gl
 from Avaday.config import BOARD_SIZE, VIEW_HEIGHT, VIEW_ELEVATION, \
     VIEW_AZIMUTH, BACKGROUND_COLOR, WINDOW_WIDTH, WINDOW_HEIGHT
 
-# TODO
-
 class ViewSpace(gl.GLViewWidget):
     """ 
     widget that displays 3d line
