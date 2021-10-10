@@ -15,7 +15,8 @@ For easier description of our architecture, we made the following diagrams:
 ## Design
 * This **Sequence Diagram** shows how our app is going to interact with the user and with itself internally.  
 ![Sequence Diagram](/Documentation/sequence.jpg)
-* We used **Visitor** pattern for widget handlers (see [code](../Avaday/Handlers/widget_handlers.py)). They operate on data from data handlers (see [code](../Avaday/Handlers/data_handlers.py)). * Most of our classes inherit from **PyQt** classes. **PyQt** uses signals and slots for calling other classes' methods. We used **Mediator** pattern in ImageUpdater (see [code](../Avaday/Handlers/widget_handlers.py)) to re-transmit signals from view space to output image widget.
+* We used **Visitor** pattern for widget handlers (see [code](../Avaday/Handlers/widget_handlers.py)). They operate on data from data handlers (see [code](../Avaday/Handlers/data_handlers.py)). 
+* Most of our classes inherit from **PyQt** classes. **PyQt** uses signals and slots for calling other classes' methods. We used **Mediator** pattern in ImageUpdater (see [code](../Avaday/Handlers/widget_handlers.py)) to re-transmit signals from view space to output image widget.
 * We do not have child classes for any of our custom class, so several SOLID principles like L,I,D hardly apply to them.
 
 ## SOLID
