@@ -1,4 +1,4 @@
-from Avaday.View.WidgetHandlers.draw_walks import ImageUpdater
+from Avaday.View.Handlers.widget_handlers import ImageUpdater
 import sys
 from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout
 from PyQt6.QtCore import Qt

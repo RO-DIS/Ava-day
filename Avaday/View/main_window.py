@@ -5,7 +5,7 @@ from PyQt6 import QtCore
 from PyQt6.QtWidgets import QApplication, QDialog, QFileDialog, QVBoxLayout, QWidget
 from Avaday.View.Widgets.drag_n_drop import DragNDropInput
 from Avaday.View.Widgets.generated_picture import GeneratedOutput
-from Avaday.View.WidgetHandlers.draw_walks import ImageUpdater
+from Avaday.View.Handlers.widget_handlers import ImageUpdater
 import shutil
 from pathlib import Path
 from Avaday.config import ROOT_DIR
