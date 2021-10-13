@@ -43,7 +43,7 @@
 
 ## Installation
 
-1. Open a terminal in some folder
+1. Open a terminal
    - Linux: `Ctrl+Alt+T`
    - Windows: `Win+X` -> Windows Powershell (administrator) -> Press `Enter`
    - MacOS (not all screen models supported): `Cmd+Space` -> Type `terminal` -> Press `Enter`
@@ -66,6 +66,12 @@
       ```sh
       brew install make
       ```
+
+1. Navigate to Desktop, e.g. via `cd`
+
+   ```sh
+   cd ~/Desktop
+   ```
 
 1. Clone the project there
 
