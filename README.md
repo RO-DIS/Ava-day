@@ -43,64 +43,67 @@
 
 ## Installation
 
-1. Open a terminal in some folder
-   - Linux: `Ctrl+Alt+T` 
-   - Windows: `Win+R` -> Type `cmd` -> Press `Enter`
+1. Open a terminal
+   - Linux: `Ctrl+Alt+T`
+   - Windows: `Win+X` -> Windows Powershell (administrator) -> Press `Enter`
    - MacOS (not all screen models supported): `Cmd+Space` -> Type `terminal` -> Press `Enter`
 
-1. Clone the project
+1. Install `make`
+   * Linux
+
+      ```sh
+      sudo apt-get install build-essential
+      ```
+
+   * Windows
+
+      ```sh
+      choco install make
+      ```
+
+   * MacOS
+
+      ```sh
+      brew install make
+      ```
+
+1. Navigate to Desktop, e.g. via `cd`
+
+   ```sh
+   cd ~/Desktop
+   ```
+
+1. Clone the project there
 
    ```sh
    git clone https://github.com/RO-DIS/Ava-day
    ```
 
-1. Navigate to project root folder
+1. Navigate to the project root folder
 
    ```sh
    cd Ava-day
    ```
 
-1. Create a new virtual environment
+1. Run Makefile
 
    ```sh
-   python3 -m venv env
+   make run
    ```
-1. Activate it
 
-   - On Linux/MacOS:
-      ```sh
-      source env/bin/activate
-      ```
-   - On Windows:
-      ```sh
-      env\Scripts\activate
-      ```
+## Using
 
-1. Install all necessary packages, including [this application](https://stackoverflow.com/a/50194143).
-
-    ```sh
-    pip install -r requirements.txt
-    ```
-
-## Running
-
-1. Run the application
-
-    ```sh
-    python main.py
-    ```
-
-2. Drag'n'drop an image into app window
+2. Drag and drop an image into app window.
 
 3. Do you see a big window with black background? Try to change the view with your mouse or touchpad!
 
-   - Click and hold the left mouse button, then move the mouse to change the view. 
+   - Click and hold the left mouse button, then move the mouse to rotate the view.
 
-   - You can also scroll your mouse wheel to zoom in or out.
+   - You can also scroll to zoom in or out.
 
 4. When you have found a cool view, click on `Save as` button to choose where to save your avatar.
 
-5. Type some `name.png`, choose a folder, and click on `Save`. Ta-da!
+5. Type some `name.png` or keep the name, choose a folder, and click on `Save`. Ta-da!
 
 ## Notes
 
