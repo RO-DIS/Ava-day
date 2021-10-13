@@ -45,7 +45,7 @@
 
 1. Open a terminal
    - Linux: `Ctrl+Alt+T`
-   - Windows: `Win+X` -> Windows Powershell (administrator) -> Press `Enter`
+   - Windows: `Win+X` -> Windows Powershell (Admin) -> Press `Enter`
    - MacOS (not all screen models supported): `Cmd+Space` -> Type `terminal` -> Press `Enter`
 
 1. Install `make`
