@@ -67,7 +67,7 @@
       brew install make
       ```
 
-1. Navigate to Desktop, e.g. via `cd`
+1. Navigate to Desktop via `cd`. You may also `cd` to another directory, of course.
 
    ```sh
    cd ~/Desktop
