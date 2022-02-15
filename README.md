@@ -2,7 +2,7 @@
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=RO-DIS_Ava-day&metric=alert_status)](https://sonarcloud.io/dashboard?id=RO-DIS_Ava-day)
 
-## Application for avatar generation
+## Application for avatar generation using a pattern produced by a genetic algorithm
 
    (day -> дай == give)
 
